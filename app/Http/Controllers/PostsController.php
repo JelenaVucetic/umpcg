@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 class PostsController extends Controller
@@ -16,7 +17,7 @@ class PostsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('admin', ['except' => ['index', 'show']]);
     }
 
     /**
