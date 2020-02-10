@@ -1,0 +1,34 @@
+.postBox {
+    padding: 20px;
+    background: #f2f2f2;
+    box-shadow: 4px 14px 25px -15px #888888;
+}
+
+.postBox div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.postBox img {
+    width:100%;
+    height:160px;
+    border:1px solid #4700b3;
+    margin-top: 20px;
+}
+
+.half-a-border-on-top {
+    border-top:2px solid #4700b3;
+    position: relative;
+}
+.half-a-border-on-top:after {
+    padding:0;margin:0;display:block;/* probably not really needed? */
+    content: "";
+    width:70%;
+    height:2.1px;
+    background-color:#f2f2f2;
+    position: absolute;
+    right:0;
+    top:-2px;
+}

@@ -1,21 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Posts</h1>
     @if(count($posts) > 0)
-        @foreach($posts as $post)
-            <div class="well">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                        <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-                        <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
-                    </div>
-                </div>
-            </div>
-        @endforeach
+           @php
+           //Columns must be a factor of 12 (1,2,3,4,6,12)
+           $numOfCols = 3;
+           $rowCount = 0;
+           $bootstrapColWidth = 12 / $numOfCols;
+           @endphp
+           <div class="row">
+                   @foreach($posts as $post)
+               <div class="col-md-@php echo $bootstrapColWidth; @endphp" style="padding-top: 30px;">
+                   <div class="postBox">
+                       <small>Objavljeno {{$post->created_at}} </small>
+                       <img src="/storage/cover_images/{{$post->cover_image}}">
+                       <h3>{{$post->title}}</h3>
+                       <div class="half-a-border-on-top">
+                           <small>2k pregleda</small>
+                           <a href="/posts/{{$post->id}}">Procitaj vise</a>
+                       </div>
+                   </div>
+               </div>
+               @php
+               $rowCount++;
+               @endphp
+               @if($rowCount % $numOfCols == 0)
+                </div><div class="row">
+               @endif
+            @endforeach
+           </div>
         {{$posts->links()}}
     @else
         <p>No posts found</p>
