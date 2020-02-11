@@ -1,13 +1,26 @@
-<nav>
-    <div class="container myNav">
-        <button>Postani clan</button>
-        <p>Unija mladih preduzetnik</p>
-        <p>o nama</p>
+<nav class="navbar" style='margin-bottom:0;'>
+    <div class="container-fluid myNav">
+        <ul class="nav navbar-nav" style="width:55%">
+            <div class="navLeft">
+                <div class="member">
+                    <button> <a href="/member" style="color:white;text-decoration:none;"> POSTANI ČLAN</a></button>
+                    <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan">
+                </div>
+              
+                <img src="/img/UMPCG_logo.svg" alt="umpcg">
+            </div>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <div style="display:flex; margin-right: 17px;align-items: center;padding-top: 18px;">
+                <img src="/img/O nama - ikonica.svg" alt="O nama" style="padding: 0 10px;">
+                <li style="color:#F15B5B;font-weight:600;padding-top:5px;">O NAMA</li>
+            </div>
+        </ul>
     </div>
 </nav>
 
-<nav class="navbar navbar-inverse">
-    <div class="container">
+<nav class="navbar">
+    <div class="container-fluid" style="background: #EFEFEF; margin: 0 140px;">
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
@@ -19,9 +32,12 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
+            <div class="search-container">
+                <form action="">
+                <input type="text" name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -30,9 +46,10 @@
                 &nbsp;
             </ul>
 
-            <ul class="nav navbar-nav">
-              <li><a href="/about">About</a></li>
-              <li><a href="/services">Services</a></li>
+            <ul class="nav navbar-nav pages">
+              <li><a href="/about">Članovi</a></li>
+              <li><a href="/services">Projekti & Aktivnosti</a></li>
+              <li><a href="/services">E-Books</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

@@ -24,4 +24,9 @@ class PagesController extends Controller
         );
         return view('pages.services')->with($data);
     }
+
+    public function member() {
+        $posts = Post::orderBy('created_at','desc')->paginate(500);
+        return view('pages.member', compact('posts'));
+    }
 }
