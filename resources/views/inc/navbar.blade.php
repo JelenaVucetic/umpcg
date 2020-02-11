@@ -1,36 +1,39 @@
-<nav class="navbar" style='margin-bottom:0;'>
+<nav class="navbar" style='margin-bottom:0;' id="myNavbar">
     <div class="container-fluid myNav">
-        <ul class="nav navbar-nav" style="width:55%">
+        <ul class="nav navbar-nav" id="navUl">
             <div class="navLeft">
                 <div class="member">
-                    <button> <a href="/member" style="color:white;text-decoration:none;"> POSTANI ČLAN</a></button>
+                    <button> <a href="/member"> POSTANI ČLAN</a></button>
                     <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan">
                 </div>
-              
-                <img src="/img/UMPCG_logo.svg" alt="umpcg">
+
+                <a href="/"> <img src="/img/UMPCG_logo.svg" alt="umpcg"></a>
             </div>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <div style="display:flex; margin-right: 17px;align-items: center;padding-top: 18px;">
-                <img src="/img/O nama - ikonica.svg" alt="O nama" style="padding: 0 10px;">
-                <li style="color:#F15B5B;font-weight:600;padding-top:5px;">O NAMA</li>
-            </div>
+            <a href="/about" style="text-decoration: none;">
+                <div class="aboutUs">
+                    <img src="/img/O nama - ikonica.svg" alt="O nama" style="padding: 0 10px;">
+                    <li>O NAMA</li>
+                </div>
+            </a>
         </ul>
     </div>
 </nav>
 
 <nav class="navbar">
-    <div class="container-fluid" style="background: #EFEFEF; margin: 0 140px;">
-        <div class="navbar-header">
+    <div class="container-fluid" id="mySecondNav">
+        <div class="navbar-header" id="myNavbarHeader">
 
             <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
+            <div>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
             <!-- Branding Image -->
             <div class="search-container">
                 <form action="">
@@ -47,9 +50,9 @@
             </ul>
 
             <ul class="nav navbar-nav pages">
-              <li><a href="/about">Članovi</a></li>
-              <li><a href="/services">Projekti & Aktivnosti</a></li>
-              <li><a href="/services">E-Books</a></li>
+              <li><a href="">Članovi</a></li>
+              <li><a href="">Projekti & Aktivnosti</a></li>
+              <li><a href="">E-Books</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

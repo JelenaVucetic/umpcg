@@ -3,6 +3,10 @@
    padding: 30px 0;
 }
 
+#navUl {
+   width:55%;
+}
+
 .navLeft {
     display:flex;
     justify-content:space-between;
@@ -18,10 +22,27 @@
     font-size: 18px;
 }
 
+.navLeft button a {
+    color:white;text-decoration:none;
+}
+
 .member img {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 5px;;
+}
+
+.aboutUs{
+   display:flex;
+    margin-right: 17px;
+    align-items: center;
+    padding-top: 18px;
+}
+
+.aboutUs li{
+   color:#F15B5B;
+    font-weight:600;
+    padding-top:5px;
 }
 
 .search-container {
@@ -52,5 +73,70 @@
     text-decoration: none;
     color: #2D2D2D;
     font-weight: 600;
+}
+
+#mySecondNav {
+    background: #EFEFEF;
+    margin: 0 140px;
+}
+
+#mySecondNav button span {
+  background: #F15B5B;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 992px) {
+    .member button {
+        display: none;
+    }
+
+    .aboutUs li {
+        display: none;
+    }
+
+    #mySecondNav {
+        margin: 0 ;
+    }
+
+    #myNavbar {
+        display: flex;
+    }
+
+    .myNav {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    #navUl {
+        width: 100%;
+    }
+
+    .navLeft {
+        width: 75%;
+    }
+
+    .search-container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 26%;
+    }
+
+    .search-container input {
+        width: 100px;
+    }
+
+
+    #myNavbarHeader {
+        display: flex;
+    }
+
+    .navbar-toggle {
+         margin-right: 0px !important;
+        padding: 9px 38px !important;
+    }
+
+    .navbar-nav {
+         margin: 7px 0 !important;
+    }
 }
 

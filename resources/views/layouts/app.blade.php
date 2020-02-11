@@ -17,6 +17,7 @@
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('css/nav.css') }}" rel="stylesheet">
     <link href="{{ asset('css/posts.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/about.css') }}" rel="stylesheet">
     <link href="{{ asset('css/member.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
