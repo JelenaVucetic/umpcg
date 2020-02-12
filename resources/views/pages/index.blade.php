@@ -20,6 +20,7 @@
                @else
                <div class="col-md-@php echo $bootstrapColWidth; @endphp" style="padding-top: 30px;">
                    <div class="postBox">
+                   <span class="category" ></span>
                        <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
                        <h3>{{$post->title}}</h3>

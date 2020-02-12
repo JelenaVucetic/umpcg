@@ -43,5 +43,8 @@
     <script>
         CKEDITOR.replace( 'article-ckeditor' );
     </script>
+    <script>
+ 
+    </script>
 </body>
 </html>
