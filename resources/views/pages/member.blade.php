@@ -81,59 +81,32 @@
         </div>
     </form>
 </section>
+
+
 @endsection
 
 @section('carousel')
 <div class="container-fluid"  style="margin:50px 0; background-color:#F6F6F6">
-    <div class="row">
-    <div class="col-md-12">
-        <div class="carousel carousel-showmanymoveone slide" id="carousel-tilenav" data-interval="false">
-            <div class="carousel-inner">
-                @php
-                $i=0;
-                @endphp
-                @foreach($posts as $post)
-                @if($i==0)
-                <div class="item active">
-                <div class="col-xs-12 col-sm-6 col-md-2">
-                
-                   <div class="postBox" style="padding: 14px;">
-                       <small>Objavljeno {{$post->created_at}} </small>
-                       <img src="/storage/cover_images/{{$post->cover_image}}">
-                       <h3>{{$post->title}}</h3>
-                       <div class="half-a-border-on-top">
-                           <small>2k pregleda</small>
-                           <a href="/posts/{{$post->id}}">Procitaj vise</a>
-                       </div>
-                   </div>
-               
-                </div>
-                </div>
-                @else
-                <div class="item">
-                <div class="col-xs-12 col-sm-6 col-md-2" >
-                
-                   <div class="postBox" >
-                       <small>Objavljeno {{$post->created_at}} </small>
-                       <img src="/storage/cover_images/{{$post->cover_image}}">
-                       <h3>{{$post->title}}</h3>
-                       <div class="half-a-border-on-top">
-                           <small>2k pregleda</small>
-                           <a href="/posts/{{$post->id}}">Procitaj vise</a>
-                       </div>
-                   </div>
-               
-                </div>
-                </div>
-                @endif
-                @php $i++; @endphp
-                @endforeach
-                
-            </div>
-            <a class="left carousel-control" href="#carousel-tilenav" data-slide="prev"><i style="color:red" class="glyphicon glyphicon-chevron-left"></i></a>
-            <a class="right carousel-control" href="#carousel-tilenav" data-slide="next"><i  style="color:red" class="glyphicon glyphicon-chevron-right"></i></a>
+<div class="jcarousel-wrapper">
+        <div class="jcarousel">
+            <ul>
+            @foreach($posts as $post)
+                <li>
+                    <div class="postBox" style="width: 300px;height: 330px; margin:auto;">
+                    <small style="color:#292663;">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
+                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}" style="max-height:130px;">
+                        <h3>{{$post->title}}</h3>
+                        <div class="half-a-border-on-top" style="align-items: center;">
+                            <small style="display:flex;align-items: center;"> <img src="/img/Pregledi-ikonica copy.svg" alt=""> 2k pregleda</small>
+                            <a href="/posts/{{$post->id}}">Pročitaj vise</a>
+                        </div>
+                    </div>
+                </li>
+                @endforeach 
+            </ul>
         </div>
-    </div>
+        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
     </div>
 </div>
 @endsection

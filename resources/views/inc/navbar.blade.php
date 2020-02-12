@@ -1,65 +1,67 @@
 <nav class="navbar" style='margin-bottom:0;' id="myNavbar">
     <div class="container-fluid myNav">
-        <ul class="nav navbar-nav" id="navUl">
-            <div class="navLeft">
-                <div class="member">
-                    <button> <a href="/member"> POSTANI ČLAN</a></button>
-                    <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan">
-                </div>
-
-                <a href="/"> <img src="/img/UMPCG_logo.svg" alt="umpcg"></a>
+        <div>
+            <button> <a href="/member"> POSTANI ČLAN</a></button>
+            <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan" style="width: 25px;margin-left: 5px;">
+        </div>
+        <div>
+            <a href="/"> <img src="/img/UMPCG_logo.svg" alt="umpcg"></a>
+        </div>
+        <a href="/about" style="text-decoration: none;">
+            <div class="aboutUs">
+                <img src="/img/O nama - ikonica.svg" alt="O nama" style="padding-right: 10px;">
+                <p>O NAMA</p>
             </div>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <a href="/about" style="text-decoration: none;">
-                <div class="aboutUs">
-                    <img src="/img/O nama - ikonica.svg" alt="O nama" style="padding: 0 10px;">
-                    <li>O NAMA</li>
-                </div>
-            </a>
-        </ul>
+        </a>     
     </div>
 </nav>
 
 <nav class="navbar">
     <div class="container-fluid" id="mySecondNav">
-        <div class="navbar-header" id="myNavbarHeader">
 
-            <!-- Collapsed Hamburger -->
-            <div>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <!-- Branding Image -->
-            <div class="search-container">
-                <form action="">
-                <input type="text" name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
+
+        <div class="bottomNav">
+            <div style="display:flex;">
+                <div>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="search-container">
+                        <form action="">
+                        <input type="text" name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                </div>
+                <div id="mobileSearch">
+                    <form>
+                        <input type="text" name="search" placeholder="Search.." id="searchBar">
+                    </form>
+                </div>
+                
         </div>
-
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 &nbsp;
             </ul>
 
-            <ul class="nav navbar-nav pages">
+            <ul class="nav navbar-nav pages" id="navPages">
               <li><a href="">Članovi</a></li>
               <li><a href="">Projekti & Aktivnosti</a></li>
               <li><a href="">E-Books</a></li>
             </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
+        </div>
+        <div> <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right socialMedia">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">Login</a></li>
+                <li><a href=""> <img src="/img/facebook.svg" alt="" style="width:20px;"> </a></li>
+              <li><a href=""> <img src="/img/instagram.svg" alt="" style="width:20px;"> </a></li>
+              <li><a href=""> <img src="/img/twitter.svg" alt="" style="width:20px;"> </a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -83,6 +85,7 @@
                     </li>
                 @endif
             </ul>
+        </div>
         </div>
     </div>
 </nav>

@@ -97,7 +97,8 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('posts.show')->with('post', $post);
+        $posts = Post::orderBy('created_at','desc')->paginate(500);
+        return view('posts.show', compact('post', 'posts'));
     }
 
     /**

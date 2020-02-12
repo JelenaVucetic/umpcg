@@ -1,6 +1,9 @@
 .myNav {
    width: 85%;
-   padding: 30px 0;
+   padding: 20px 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
 
 #navUl {
@@ -13,16 +16,16 @@
     align-items: center;
 }
 
-.navLeft button {
-    width:200px;
-    height: 40px;
+.myNav button {
+    width:150px;
+    height: 30px;
     background-color: #F15B5B;
     color: white;
     border: none;
-    font-size: 18px;
+    font-size: 14px;
 }
 
-.navLeft button a {
+.myNav button a {
     color:white;text-decoration:none;
 }
 
@@ -35,11 +38,11 @@
 .aboutUs{
    display:flex;
     margin-right: 17px;
-    align-items: center;
+    align-items: end;
     padding-top: 18px;
 }
 
-.aboutUs li{
+.aboutUs p{
    color:#F15B5B;
     font-weight:600;
     padding-top:5px;
@@ -50,15 +53,15 @@
 }
 
 .search-container input {
-    width: 300px;
-    height: 30px;
+    width: 200px;
+    height: 27px;
     border: none;
     border-radius: 5px;
 }
 
 .search-container button {
     float: right;
-    padding: 4px 10px;
+    padding: 2px 10px;
     margin-right: 16px;
     background: #F15B5B;
     border: none;
@@ -84,13 +87,49 @@
   background: #F15B5B;
 }
 
-/* Extra Small Devices, Phones */
+#navPages {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    width: auto;
+}
+
+.bottomNav {
+    display: flex; 
+    justify-content: space-between;
+}
+
+#mobileSearch {
+    display:none;
+}
+
+ #searchBar  {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  #searchBar:focus {
+    width: 100%;
+  }
+
+
 @media only screen and (max-width : 992px) {
-    .member button {
+    .myNav button {
         display: none;
     }
 
-    .aboutUs li {
+    .aboutUs p {
         display: none;
     }
 
@@ -112,13 +151,11 @@
     }
 
     .navLeft {
-        width: 75%;
+        width: 80%;
     }
 
     .search-container {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 26%;
+        display:none;
     }
 
     .search-container input {
@@ -137,6 +174,26 @@
 
     .navbar-nav {
          margin: 7px 0 !important;
+    }
+
+    #navPages {
+        font-size: 15px;
+        width: 100%;
+        display: block;
+    }
+    
+    .bottomNav {
+        flex-direction: column;
+    }
+        .socialMedia {
+        display: flex;
+    }
+
+    .aboutUs {
+         padding-top: 0px; 
+    }
+    #mobileSearch {
+        display: block;
     }
 }
 
