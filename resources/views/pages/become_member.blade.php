@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="memberSection">
+<section id="becomMemberSection">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 <div class="panel panel-default">

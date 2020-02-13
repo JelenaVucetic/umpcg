@@ -1,7 +1,7 @@
 <nav class="navbar" style='margin-bottom:0;' id="myNavbar">
     <div class="container-fluid myNav">
         <div>
-            <button> <a href="/member"> POSTANI ČLAN</a></button>
+            <button> <a href="/become_member"> POSTANI ČLAN</a></button>
             <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan" style="width: 25px;margin-left: 5px;">
         </div>
         <div>
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <ul class="nav navbar-nav pages" id="navPages">
-              <li><a href="">Članovi</a></li>
+              <li><a href="/members">Članovi</a></li>
               <li><a href="">Projekti & Aktivnosti</a></li>
               <li><a href="">E-Books</a></li>
             </ul> 

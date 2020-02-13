@@ -1,4 +1,4 @@
-#memberSection {
+#becomMemberSection {
     width: 80%;
     margin: 50px auto;
 }
@@ -37,13 +37,13 @@
 }
 
 #submitBtn button {
-    width: 220px;
-    height: 41px;
+    width: 150px;
+    height: 30px;
     background: #F15B5B 0% 0% no-repeat padding-box;
     border: none;
     border-radius: 3px;
     color:white;
-    font-size:18px;
+    font-size:14px;
 }
 
 @media only screen and (max-width : 992px) {

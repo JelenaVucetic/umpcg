@@ -24,8 +24,12 @@ class PagesController extends Controller
         return view('pages.services')->with($data);
     }
 
-    public function member() {
+    public function becomeMember() {
         $posts = Post::orderBy('created_at','desc')->paginate(500);
-        return view('pages.member', compact('posts'));
+        return view('pages.become_member', compact('posts'));
+    }
+
+    public function members() {
+        return view('pages.members');
     }
 }

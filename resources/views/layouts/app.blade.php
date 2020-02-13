@@ -19,7 +19,8 @@
     <link href="{{ asset('css/nav.css') }}" rel="stylesheet">
     <link href="{{ asset('css/posts.css') }}" rel="stylesheet">
     <link href="{{ asset('css/about.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/member.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/becomeMember.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/members.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
@@ -30,6 +31,7 @@
             @include('inc.messages')
             @yield('content')
         </div>
+        @yield('members')
             @yield('carousel')
         @include('inc.footer')
     </div>

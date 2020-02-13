@@ -25,7 +25,9 @@ Route::get('/users/{id}/{name}', function($id, $name){
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
-Route::get('/member', 'PagesController@member');
+Route::get('/become_member', 'PagesController@becomeMember');
+Route::get('/members', 'PagesController@members');
+
 
 Route::resource('posts', 'PostsController');
 Auth::routes(['register' => false]);

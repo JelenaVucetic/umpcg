@@ -72,3 +72,8 @@
     margin-right: -10px;
     display:none;
 }
+
+
+.postBox:hover .category{
+    display:block;
+}
