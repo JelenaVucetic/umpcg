@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{!! Breadcrumbs::render('become_member') !!}
 <section id="becomMemberSection">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -108,5 +109,11 @@
         <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
         <a href="#" class="jcarousel-control-next">&rsaquo;</a>
     </div>
+</div>
+@endsection
+
+@section('breadcrumbs')
+<div class="container-fluid" id='myBreadcrums'>
+    {!! Breadcrumbs::render('become_member') !!}
 </div>
 @endsection

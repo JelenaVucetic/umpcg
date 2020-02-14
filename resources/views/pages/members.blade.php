@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('members')
+<div class="container-fluid" style="margin:0 125px;">
+{!! Breadcrumbs::render('members') !!}
+</div>
+
 <div class="container-fluid" id="membersSection">
     <div class="row">
         <div class="col-md-3  company">
@@ -121,5 +125,11 @@
             </div>
         </div> -->
     </div>
+</div>
+@endsection
+
+@section('breadcrumbs')
+<div class="container-fluid" id='myBreadcrums'>
+    {!! Breadcrumbs::render('members') !!}
 </div>
 @endsection

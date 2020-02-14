@@ -58,7 +58,8 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'cover_image' => 'image|nullable|max:1999'
+            'cover_image' => 'image|nullable|max:1999',
+            'category' => 'required'
         ]);
 
         // Handle File Upload
@@ -83,6 +84,7 @@ class PostsController extends Controller
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
         $post->cover_image = $fileNameToStore;
+        $post->category = $request->category;
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created');
@@ -157,6 +159,7 @@ class PostsController extends Controller
         // Update Post
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->category = $request->category;
         if($request->hasFile('cover_image')){
             $post->cover_image = $fileNameToStore;
         }

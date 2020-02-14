@@ -1,5 +1,7 @@
 <?php
-
+if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
+    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+}
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,12 +24,13 @@ Route::get('/users/{id}/{name}', function($id, $name){
 });
 */
 
-Route::get('/', 'PagesController@index');
-Route::get('/about', 'PagesController@about');
-Route::get('/services', 'PagesController@services');
-Route::get('/become_member', 'PagesController@becomeMember');
-Route::get('/members', 'PagesController@members');
+Route::get('/', 'PagesController@index')->name('home');
+Route::get('/about', 'PagesController@about')->name('about');
+Route::get('/become_member', 'PagesController@becomeMember')->name('become_member');
+Route::get('/members', 'PagesController@members')->name('members');
+Route::get('/projects', 'PagesController@projects')->name('projects');
 
+Route::get('/search', 'PagesController@search')->name('search');
 
 Route::resource('posts', 'PostsController');
 Auth::routes(['register' => false]);

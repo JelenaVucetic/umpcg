@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<img src="/img/Drop down strelica.svg" alt="" onclick="topFunction()" id="myBtn" title="Go to top">
-{!! Breadcrumbs::render('home') !!}
-    @if(count($posts) > 0)
+<h1>Search Results</h1>
+   <p>zezultat(i) za '{{ request()->input('query') }}'</p>
+    @include('inc.messages')
+    
            @php
            //Columns must be a factor of 12 (1,2,3,4,6,12)
            $numOfCols = 3;
@@ -11,7 +12,7 @@
            $bootstrapColWidth = 12 / $numOfCols;
            @endphp
            <div class="row">
-            @foreach($posts as $post)
+            @forelse($posts as $post)
             @if( $rowCount == 5 )
                <div class="col-md-@php echo $bootstrapColWidth; @endphp" style="padding-top: 30px;">
                    <div class="postBox" style="background:none;box-shadow:none;padding: 70px 30px;">
@@ -39,18 +40,12 @@
                @if($rowCount % $numOfCols == 0)
                 </div><div class="row">
                @endif
-               
-            @endforeach
+               @empty
+                <p>No posts found</p>
+            @endforelse
            </div>
         {{$posts->links()}}
-    @else
-        <p>No posts found</p>
-    @endif
+   
 
-@endsection
 
-@section('breadcrumbs')
-<div class="container-fluid" id='myBreadcrums'>
-    {!! Breadcrumbs::render('home') !!}
-</div>
 @endsection

@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<img src="/img/Drop down strelica.svg" alt="" onclick="topFunction()" id="myBtn" title="Go to top">
-{!! Breadcrumbs::render('home') !!}
+{!! Breadcrumbs::render('projects') !!}
     @if(count($posts) > 0)
            @php
            //Columns must be a factor of 12 (1,2,3,4,6,12)
@@ -51,6 +50,6 @@
 
 @section('breadcrumbs')
 <div class="container-fluid" id='myBreadcrums'>
-    {!! Breadcrumbs::render('home') !!}
+  {!! Breadcrumbs::render('projects') !!}
 </div>
 @endsection

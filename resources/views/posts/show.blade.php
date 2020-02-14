@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{!! Breadcrumbs::render('post', $post->title) !!}
 <section style="margin: 50px 0; background:#EFEFEF; padding:50px;">
     <div>
         <img style="width:650px;height:340px;float: right; padding:30px;" src="/storage/cover_images/{{$post->cover_image}}">

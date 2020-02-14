@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{!! Breadcrumbs::render('about') !!}
 <section id="aboutSection">
     <h3>MISIJA & VIZIJA</h3>
     <div>
@@ -40,4 +41,10 @@
     </div>
 </section>
 
+@endsection
+
+@section('breadcrumbs')
+<div class="container-fluid" id='myBreadcrums'>
+    {!! Breadcrumbs::render('about') !!}
+</div>
 @endsection

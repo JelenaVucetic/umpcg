@@ -17,34 +17,34 @@
 </nav>
 
 <nav class="navbar">
-<div class='mobile'>
-        <form action="">
-            <input type="text" placeholder="Search...">
-            <div class="mobileSearch"></div>
-        </form> 
+    <div class='mobile'>
+            <form  action="{{ route('search') }}" method='get'>
+                <input name="query" id="query" value="{{ request()->input('query') }}" placeholder="Search...">
+                <div class="mobileSearch"></div>
+            </form> 
+    </div>
+<div class="container-fluid" id="mySecondNav">
+        <div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-    <div class="container-fluid" id="mySecondNav">
-            <div>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
         <div class="desctop">
             <div style="display:flex;">
                 <div class="search-container">
-                    <form action="">
+                    <form action="{{ route('search') }}" method='get'>
                         <button type="submit"><i class="fa fa-search"></i></button>
-                        <input type="text" name="search">
+                        <input type="text" name="query" id="query" value="{{ request()->input('query') }}">
                     </form>
                 </div>
             </div>
             <ul class="nav navbar-nav pages" id="navPages">
               <li><a href="/members">Članovi</a></li>
-              <li><a href="">Projekti & Aktivnosti</a></li>
+              <li><a href="/projects">Projekti & Aktivnosti</a></li>
               <li><a href="">E-Books</a></li>
             </ul> 
             <ul class="nav navbar-nav navbar-right socialMedia">

@@ -12,6 +12,12 @@
             {{Form::textarea('body', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
         </div>
         <div class="form-group">
+            <select name="category">
+                <option value="umpcg">umpcg</option>
+                <option value="ostalo">ostalo</option>
+            </select>
+        </div>
+        <div class="form-group">
             {{Form::file('cover_image')}}
         </div>
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
