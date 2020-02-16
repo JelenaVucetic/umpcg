@@ -33,8 +33,8 @@ Breadcrumbs::register('projects', function($breadcrumbs)
 });
 
 
-// Home > Blog > [Category]
-Breadcrumbs::register('post', function($breadcrumbs, $posts)
+// Home > Blog > Post
+Breadcrumbs::register('post', function($breadcrumbs, $post)
 {
     $breadcrumbs->parent('home');
     $breadcrumbs->push($post->title, route('posts.show', $post));

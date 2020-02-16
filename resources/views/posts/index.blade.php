@@ -4,21 +4,18 @@
 
     @if(count($posts) > 0)
            @php
-           //Columns must be a factor of 12 (1,2,3,4,6,12)
-           $numOfCols = 3;
            $rowCount = 0;
-           $bootstrapColWidth = 12 / $numOfCols;
            @endphp
            <div class="row">
             @foreach($posts as $post)
             @if( $rowCount == 5 )
-               <div class="col-md-@php echo $bootstrapColWidth; @endphp" style="padding-top: 30px;">
+               <div class="col-md-4" style="padding-top: 30px;">
                    <div class="postBox" style="background:none;box-shadow:none;padding: 70px 30px;">
                        <img src="/img/Baner-EYCA-UMPCG.png" style="border:none; width:100%">    
                    </div>
                </div>
                @else
-               <div class="col-md-@php echo $bootstrapColWidth; @endphp" style="padding-top: 30px;">
+               <div class="col-md-4" style="padding-top: 30px;">
                    <div class="postBox">
                        <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
@@ -32,9 +29,8 @@
                @endif
                @php
                $rowCount++;
-               @endphp
-              
-               @if($rowCount % $numOfCols == 0)
+               @endphp        
+               @if($rowCount % 3 == 0)
                 </div><div class="row">
                @endif
                

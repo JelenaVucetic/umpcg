@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Illuminate\Support\Facades\Redis;
 
 class PostsController extends Controller
 {
@@ -27,12 +28,6 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //$posts = Post::all();
-        //return Post::where('title', 'Post Two')->get();
-        //$posts = DB::select('SELECT * FROM posts');
-        //$posts = Post::orderBy('title','desc')->take(1)->get();
-        //$posts = Post::orderBy('title','desc')->get();
-
         $posts = Post::orderBy('created_at','desc')->paginate(500);
         return view('posts.index')->with('posts', $posts);
     }
@@ -98,9 +93,12 @@ class PostsController extends Controller
      */
     public function show($id)
     {
+        $storage = Redis::connection();
+        $views = $storage->incr('post:' . $id . ':views');
+
         $post = Post::find($id);
         $posts = Post::orderBy('created_at','desc')->paginate(500);
-        return view('posts.show', compact('post', 'posts'));
+        return view('posts.show', compact('post', 'posts', 'views'));
     }
 
     /**
