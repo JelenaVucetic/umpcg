@@ -30,38 +30,9 @@
 .postBox h3 {
     color:#292663;
     font-size: 24px;
+    height: 60px;
 }
 
-.half-a-border-on-top {
-    border-top:2px solid #4700b3;
-    position: relative;
-}
-.half-a-border-on-top:after {
-    padding:0;margin:0;display:block;/* probably not really needed? */
-    content: "";
-    width:70%;
-    height:2.1px;
-    background-color:rgb(255, 251, 251);
-    position: absolute;
-    right:0;
-    top:-2px;
-}
-
-.half-a-border-on-top-second {
-    border-top:2px solid #4700b3;
-    position: relative;
-    padding: 10px 0;
-}
-.half-a-border-on-top-second:after {
-    padding:0;margin:0;display:block;/* probably not really needed? */
-    content: "";
-    width:70%;
-    height:2.1px;
-    background-color:#EFEFEF;
-    position: absolute;
-    right:0;
-    top:-2px;
-}
 
 .category {
     width: 20px;
@@ -116,3 +87,11 @@
     background-color: #EFEFEF;
     padding: 15px 20%;
 }
+
+.postBox a{
+    text-decoration: none;
+    color: #C9C9C9;
+    border:none;
+    background:none;
+}
+

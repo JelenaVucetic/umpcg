@@ -14,6 +14,7 @@ class PagesController extends Controller
         $posts->map(function ($post) {
             $redis = Redis::connection();
             $post->views = $redis->get('post:' . $post->id . ':views');
+            $post->title = substr($post->title , 0, 50);
             return $post;
         });
         return view('pages.index')->with('posts', $posts);
@@ -25,6 +26,12 @@ class PagesController extends Controller
 
     public function becomeMember() {
         $posts = Post::orderBy('created_at','desc')->paginate(500);
+        $posts->map(function ($post) {
+            $redis = Redis::connection();
+            $post->views = $redis->get('post:' . $post->id . ':views');
+            $post->title = substr($post->title , 0, 50);
+            return $post;
+        });
         return view('pages.become_member', compact('posts'));
     }
 
@@ -32,14 +39,15 @@ class PagesController extends Controller
         return view('pages.members');
     }
 
-    public function projects () {
+    public function activities () {
         $posts = Post::orderBy('created_at','desc')->where('category' ,'ostalo')->paginate(500);
         $posts->map(function ($post) {
             $redis = Redis::connection();
             $post->views = $redis->get('post:' . $post->id . ':views');
+            $post->title = substr($post->title , 0, 10);
             return $post;
         });
-        return view('pages.projects', compact('posts'));
+        return view('pages.activities', compact('posts'));
     }
 
     public function search(Request $request) {
@@ -53,4 +61,7 @@ class PagesController extends Controller
         $posts = Post::search($query)->paginate(20);
         return view('pages.search_results', compact('posts'));
     }
+
+    
+  
 }

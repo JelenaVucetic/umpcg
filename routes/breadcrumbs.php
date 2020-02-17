@@ -26,10 +26,10 @@ Breadcrumbs::register('members', function($breadcrumbs)
     $breadcrumbs->push('Članovi', route('members'));
 });
 
-Breadcrumbs::register('projects', function($breadcrumbs)
+Breadcrumbs::register('activities', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Projekti i aktivnosi', route('projects'));
+    $breadcrumbs->push('Aktivnosi', route('activities'));
 });
 
 

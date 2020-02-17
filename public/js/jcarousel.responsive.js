@@ -14,6 +14,7 @@
                 }
 
                 carousel.jcarousel('items').css('width', Math.ceil(width) + 'px');
+              
             })
             .jcarousel({
                 wrap: 'circular'

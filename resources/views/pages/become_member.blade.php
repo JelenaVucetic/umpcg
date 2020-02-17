@@ -65,7 +65,8 @@
                 <input type="text" placeholder="Mjesto Prebivalista">
                 <input type="text" placeholder="Telefon">
                 <input type="email" placeholder="E-mail">
-                <input id="fileInput" type="file">
+                <input id="fileInput" type="file" style="display:none;">
+                <label for="fileInput"><img src="/img/Upload.svg" alt=""><span> Uploaduj svoj logo </span> </label>
             </div>
             <div>
                 <input type="text" placeholder="Naziv firme">
@@ -76,6 +77,10 @@
                 <input type="text" placeholder="Osnovna djelatnost">
                 <input type="text" placeholder="Oblik organizacije">
             </div>
+        </div>
+        <textarea name="" id="" placeholder="Kratak opis vaše kompanije"></textarea>
+        <div class="textareaLimit">
+            <span>220-250 karaktera</span> <span>Unijeto <span id="characters">0 </span>  karatkera</span>
         </div>
         <div id="submitBtn">
              <button type="submit">POŠALJI ZAHTJEV</button>
@@ -88,20 +93,24 @@
 
 @section('carousel')
 <div class="container-fluid"  style="margin:50px 0; background-color:#F6F6F6">
-<div class="jcarousel-wrapper">
+<div class="jcarousel-wrapper" style="width:70%;">
         <div class="jcarousel">
             <ul>
             @foreach($posts as $post)
                 <li>
-                    <div class="postBox" style="width: 300px;height: 330px; margin:auto;">
-                    <small style="color:#292663;">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
-                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}" style="max-height:130px;">
+                <div class="postBox" style="width: 300px; margin:auto;">
+                    <a href="/posts/{{$post->id}}">
+                        <span class="category" ></span>
+                        <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
+                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;">
                         <h3>{{$post->title}}</h3>
-                        <div class="half-a-border-on-top" style="align-items: center;">
-                            <small style="display:flex;align-items: center;"> <img src="/img/Pregledi-ikonica copy.svg" alt=""> 2k pregleda</small>
-                            <a href="/posts/{{$post->id}}">Pročitaj vise</a>
-                        </div>
-                    </div>
+                        <div>
+                            @if($post->views)
+                                <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">{{$post->views}} pregleda</small>
+                            @endif
+                       </div>
+                    </a>
+                </div>
                 </li>
                 @endforeach 
             </ul>

@@ -1,5 +1,5 @@
 .myNav {
-   width: 85%;
+   width: 100%;
    padding: 20px 0;
    display: flex;
    justify-content: space-between;
@@ -25,9 +25,20 @@
     font-size: 14px;
 }
 
+.myNav button:hover {
+    background-color: rgb(219, 53, 53);
+}
+
 .myNav button a {
     color:white;text-decoration:none;
 }
+.nav > li > a > img {
+    transition: all .2s ease-in-out;
+}
+.nav > li > a > img:hover {
+    transform: scale(1.1);
+}
+
 
 .member img {
     padding-left: 20px;
@@ -52,7 +63,11 @@
     font-weight:600;
     padding-top:5px;
 }
+.aboutUs p:hover{
+    color: rgb(219, 53, 53);
 
+ }
+ 
 .search-container {
     padding: 10px;
     width: 250px;
@@ -107,9 +122,9 @@
 #navPages {
     font-size: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     white-space: nowrap;
-    width: auto;
+    width: 50%;
 }
 
 .bottomNav {

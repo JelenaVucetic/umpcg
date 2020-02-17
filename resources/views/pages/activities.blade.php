@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{!! Breadcrumbs::render('projects') !!}
+{!! Breadcrumbs::render('activities') !!}
     @if(count($posts) > 0)
            @php
            //Columns must be a factor of 12 (1,2,3,4,6,12)
@@ -20,14 +20,17 @@
                @else
                <div class="col-md-@php echo $bootstrapColWidth; @endphp" style="padding-top: 30px;">
                    <div class="postBox">
-                   <span class="category" ></span>
+                   <a href="/posts/{{$post->id}}">    
+                   <span class="categoryActivities" ></span>
                        <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
                        <h3>{{$post->title}}</h3>
-                       <div class="half-a-border-on-top">
+                       <div>
+                       @if($post->views)
                            <small> <img src="/img/Pregledi-ikonica copy.svg" alt=""> {{$post->views}} pregleda</small>
-                           <a href="/posts/{{$post->id}}">Pročitaj vise</a>
+                        @endif
                        </div>
+                    </a>
                    </div>
                </div>
                @endif
@@ -50,6 +53,6 @@
 
 @section('breadcrumbs')
 <div class="container-fluid" id='myBreadcrums'>
-  {!! Breadcrumbs::render('projects') !!}
+  {!! Breadcrumbs::render('activities') !!}
 </div>
 @endsection

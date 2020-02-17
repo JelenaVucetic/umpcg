@@ -17,11 +17,14 @@
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jcarousel.responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('css/nav.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/posts.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/singlePost.css') }}" rel="stylesheet">
     <link href="{{ asset('css/about.css') }}" rel="stylesheet">
     <link href="{{ asset('css/becomeMember.css') }}" rel="stylesheet">
     <link href="{{ asset('css/members.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/activities.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body style="font-family: 'Roboto'; background-color:white !important;">
@@ -66,6 +69,15 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
         }
+</script>
+<script>
+    $('textarea').keyup(updateCount);
+    $('textarea').keydown(updateCount);
+
+function updateCount() {
+    var cs = $(this).val().length;
+    $('#characters').text(cs);
+}
 </script>
 </body>
 </html>

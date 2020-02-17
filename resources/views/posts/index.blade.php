@@ -22,7 +22,6 @@
                        <h3>{{$post->title}}</h3>
                        <div class="half-a-border-on-top">
                            <small> <img src="/img/Pregledi-ikonica copy.svg" alt=""> 2k pregleda</small>
-                           <a href="/posts/{{$post->id}}">Pročitaj vise</a>
                        </div>
                    </div>
                </div>

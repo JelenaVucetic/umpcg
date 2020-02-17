@@ -44,7 +44,7 @@
             </div>
             <ul class="nav navbar-nav pages" id="navPages">
               <li><a href="/members">Članovi</a></li>
-              <li><a href="/projects">Projekti & Aktivnosti</a></li>
+              <li><a href="/activities">Aktivnosti</a></li>
               <li><a href="">E-Books</a></li>
             </ul> 
             <ul class="nav navbar-nav navbar-right socialMedia">

@@ -98,6 +98,7 @@ class PostsController extends Controller
 
         $post = Post::find($id);
         $posts = Post::orderBy('created_at','desc')->paginate(500);
+      
         return view('posts.show', compact('post', 'posts', 'views'));
     }
 

@@ -1,0 +1,35 @@
+.singlePostSection {
+    margin: 50px 0; 
+    background:#EFEFEF; 
+    padding:50px;
+}
+
+.singlePost {
+    width:650px;
+    height:340px;
+    float: right; 
+    padding: 0 30px;
+    padding-bottom: 20px;
+ }
+
+ .shareBtn {
+     background: #010101;
+     color: white;
+     display: flex;
+     width:100px;
+     justify-content: space-between;
+     padding: 2px 10px;
+     margin-left: 49%;
+ }
+ 
+ @media only screen and (max-width : 992px) {
+     .singlePostSection {
+        margin:0;
+        padding: 15px;
+     }
+     .singlePost {
+        width: 300px;
+        height: 250px;
+        padding:0;
+    }
+ }
