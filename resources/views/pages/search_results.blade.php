@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Search Results</h1>
-   <p>zezultat(i) za '{{ request()->input('query') }}'</p>
+{!! Breadcrumbs::render('search') !!}
+<h1>Rezultati pretrage</h1>
+   <p>Rezultat(i) za '{{ request()->input('query') }}'</p>
     @include('inc.messages')
     
            @php
@@ -27,7 +28,9 @@
                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
                        <h3>{{$post->title}}</h3>
                        <div class="half-a-border-on-top">
-                           <small> <img src="/img/Pregledi-ikonica copy.svg" alt=""> 2k pregleda</small>
+                           @if($post->views)
+                           <small> <img src="/img/Pregledi-ikonica copy.svg" alt=""> {{$post->views}} pregleda</small>
+                           @endif
                            <a href="/posts/{{$post->id}}">Pročitaj vise</a>
                        </div>
                    </div>
@@ -45,7 +48,10 @@
             @endforelse
            </div>
         {{$posts->links()}}
-   
 
-
+@endsection
+@section('breadcrumbs')
+<div class="container-fluid" id='myBreadcrums'>
+    {!! Breadcrumbs::render('search') !!}
+</div>
 @endsection

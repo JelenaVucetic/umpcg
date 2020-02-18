@@ -5,7 +5,7 @@
 </div>
 
 <div class="container-fluid" id="membersSection">
-    <div class="row">
+    <div class="row random">
         <div class="col-md-3  company">
             <div class="inner">
                 <img src="/img/QQRIQ Logotip 2020 WHITE.svg" alt="">
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="row" style="margin-top:20px;">
+    <div class="row random" style="margin-top:20px;">
         <div class="col-md-3  company">
             <div class="inner">
                 <img src="/img/G-Consulting.png" alt="">
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="row"  style="margin-top:20px;">
+    <div class="row random"  style="margin-top:20px;">
         <div class="col-md-3  company">
             <div class="inner">
                 <img src="/img/Kakao.png" alt="">
@@ -81,7 +81,7 @@
             </div>
         </div>
     </div>
-    <div class="row"  style="margin-top:20px;">
+    <div class="row random"  style="margin-top:20px;">
         <div class="col-md-3  company">
             <div class="inner">
                 <img src="/img/Minuta.png" alt="">
@@ -103,7 +103,7 @@
             </div>
         </div>
     </div>
-    <div class="row"  style="margin-top:20px;">
+    <div class="row random"  style="margin-top:20px;">
         <div class="col-md-3  company">
             <div class="inner">
                 <img src="/img/Seljak.png" alt="">

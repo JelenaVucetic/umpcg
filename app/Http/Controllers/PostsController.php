@@ -82,7 +82,7 @@ class PostsController extends Controller
         $post->category = $request->category;
         $post->save();
 
-        return redirect('/posts')->with('success', 'Post Created');
+        return redirect('/')->with('success', 'Članak je uspješno kreiran');
     }
 
     /**
@@ -95,10 +95,12 @@ class PostsController extends Controller
     {
         $storage = Redis::connection();
         $views = $storage->incr('post:' . $id . ':views');
-
+        
         $post = Post::find($id);
         $posts = Post::orderBy('created_at','desc')->paginate(500);
-      
+        $posts->map(function ($post) {
+            $post->title = substr($post->title , 0, 50);
+        });
         return view('posts.show', compact('post', 'posts', 'views'));
     }
 
@@ -114,12 +116,12 @@ class PostsController extends Controller
         
         //Check if post exists before deleting
         if (!isset($post)){
-            return redirect('/posts')->with('error', 'No Post Found');
+            return redirect('/')->with('error', 'No Post Found');
         }
 
         // Check for correct user
         if(auth()->user()->id !==$post->user_id){
-            return redirect('/posts')->with('error', 'Unauthorized Page');
+            return redirect('/')->with('error', 'Unauthorized Page');
         }
 
         return view('posts.edit')->with('post', $post);
@@ -164,7 +166,7 @@ class PostsController extends Controller
         }
         $post->save();
 
-        return redirect('/posts')->with('success', 'Post Updated');
+        return redirect('/')->with('success', 'Članak je uspješno izmjenjen');
     }
 
     /**
@@ -179,7 +181,7 @@ class PostsController extends Controller
         
         //Check if post exists before deleting
         if (!isset($post)){
-            return redirect('/posts')->with('error', 'No Post Found');
+            return redirect('/posts')->with('error', 'Nije pronađen post');
         }
 
         // Check for correct user
@@ -193,6 +195,6 @@ class PostsController extends Controller
         }
         
         $post->delete();
-        return redirect('/posts')->with('success', 'Post Removed');
+        return redirect()->back()->with('success', 'Članak je uspješno obrisan.');
     }
 }

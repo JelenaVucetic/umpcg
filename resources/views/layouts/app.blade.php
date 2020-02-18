@@ -79,5 +79,10 @@ function updateCount() {
     $('#characters').text(cs);
 }
 </script>
+<script>
+    $(function() {
+        $(".random").html($(".random").children().sort(function() { return 0.5 - Math.random() }));
+        });
+</script>
 </body>
 </html>

@@ -21,7 +21,21 @@
      padding: 2px 10px;
      margin-left: 49%;
  }
- 
+
+ .shareBtn > ul {
+     display: none;
+ }
+ .shareBtn:hover > ul {
+    display: flex;
+    margin-left: -43px;
+ }
+ .shareBtn:hover > ul > li {
+    padding: 5px;
+ }
+ .shareBtn:hover {
+    display: inline-block;
+}
+
  @media only screen and (max-width : 992px) {
      .singlePostSection {
         margin:0;
@@ -31,5 +45,9 @@
         width: 300px;
         height: 250px;
         padding:0;
+    }
+
+    .shareBtn {
+        margin-left: 34%;
     }
  }

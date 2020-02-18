@@ -60,25 +60,25 @@
     <form action="">
         <div class="contactForm">
             <div>
-                <input type="text" placeholder="Ime i prezime">
-                <input type="text" placeholder="JMBG">
-                <input type="text" placeholder="Mjesto Prebivalista">
-                <input type="text" placeholder="Telefon">
-                <input type="email" placeholder="E-mail">
-                <input id="fileInput" type="file" style="display:none;">
+                <input type="text" name="name" placeholder="Ime i prezime">
+                <input type="text" name="jmbg" placeholder="JMBG">
+                <input type="text" name="place" placeholder="Mjesto Prebivalista">
+                <input type="text" name="phone" placeholder="Telefon">
+                <input type="email" name="email" placeholder="E-mail">
+                <input id="fileInput" name="image" type="file" style="display:none;">
                 <label for="fileInput"><img src="/img/Upload.svg" alt=""><span> Uploaduj svoj logo </span> </label>
             </div>
             <div>
-                <input type="text" placeholder="Naziv firme">
-                <input type="text" placeholder="PIB">
-                <input type="text" placeholder="Datum osnivanja">
-                <input type="text" placeholder="Adresa firme">
-                <input type="text" placeholder="Web adresa">
-                <input type="text" placeholder="Osnovna djelatnost">
-                <input type="text" placeholder="Oblik organizacije">
+                <input type="text" name="company" placeholder="Naziv firme">
+                <input type="text" name="pib" placeholder="PIB">
+                <input type="text" name="date" placeholder="Datum osnivanja">
+                <input type="text" name="address" placeholder="Adresa firme">
+                <input type="text" name="web" placeholder="Web adresa">
+                <input type="text" name="work" placeholder="Osnovna djelatnost">
+                <input type="text" name="organization" placeholder="Oblik organizacije">
             </div>
         </div>
-        <textarea name="" id="" placeholder="Kratak opis vaše kompanije"></textarea>
+        <textarea name="description" id="" placeholder="Kratak opis vaše kompanije"></textarea>
         <div class="textareaLimit">
             <span>220-250 karaktera</span> <span>Unijeto <span id="characters">0 </span>  karatkera</span>
         </div>
@@ -92,21 +92,21 @@
 @endsection
 
 @section('carousel')
-<div class="container-fluid"  style="margin:50px 0; background-color:#F6F6F6">
-<div class="jcarousel-wrapper" style="width:70%;">
+<div class="container-fluid" id="myCarousel">
+<div class="jcarousel-wrapper" id="myCarouselWrapper">
         <div class="jcarousel">
             <ul>
             @foreach($posts as $post)
                 <li>
-                <div class="postBox" style="width: 300px; margin:auto;">
+                <div class="postBox carouselPost">
                     <a href="/posts/{{$post->id}}">
                         <span class="category" ></span>
                         <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
-                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;">
-                        <h3>{{$post->title}}</h3>
+                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
+                        <h3 style="font-size: 22px;">{{$post->title}}</h3>
                         <div>
                             @if($post->views)
-                                <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">{{$post->views}} pregleda</small>
+                                <small style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:5px">{{$post->views}} pregleda</small>
                             @endif
                        </div>
                     </a>
@@ -115,8 +115,8 @@
                 @endforeach 
             </ul>
         </div>
-        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+        <a href="#" class="jcarousel-control-prev"><img src="/img/Drop down strelica (1).svg" alt=""></a>
+        <a href="#" class="jcarousel-control-next"><img src="/img/Drop down strelica (1).svg" alt=""></a>
     </div>
 </div>
 @endsection

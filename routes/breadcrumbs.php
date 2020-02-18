@@ -13,6 +13,14 @@ Breadcrumbs::register('about', function($breadcrumbs)
     $breadcrumbs->push('O nama', route('about'));
 });
 
+// Home > Search
+Breadcrumbs::register('search', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Pretraga', route('search'));
+});
+
+
 // Home > Blog
 Breadcrumbs::register('become_member', function($breadcrumbs)
 {

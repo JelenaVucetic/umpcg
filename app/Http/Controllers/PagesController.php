@@ -14,7 +14,7 @@ class PagesController extends Controller
         $posts->map(function ($post) {
             $redis = Redis::connection();
             $post->views = $redis->get('post:' . $post->id . ':views');
-            $post->title = substr($post->title , 0, 50);
+            $post->title = substr($post->title , 0, 50).'...';
             return $post;
         });
         return view('pages.index')->with('posts', $posts);
@@ -29,7 +29,7 @@ class PagesController extends Controller
         $posts->map(function ($post) {
             $redis = Redis::connection();
             $post->views = $redis->get('post:' . $post->id . ':views');
-            $post->title = substr($post->title , 0, 50);
+            $post->title = substr($post->title , 0, 50).'...';
             return $post;
         });
         return view('pages.become_member', compact('posts'));
@@ -44,7 +44,7 @@ class PagesController extends Controller
         $posts->map(function ($post) {
             $redis = Redis::connection();
             $post->views = $redis->get('post:' . $post->id . ':views');
-            $post->title = substr($post->title , 0, 10);
+            $post->title = substr($post->title , 0, 50).'...';
             return $post;
         });
         return view('pages.activities', compact('posts'));
@@ -59,6 +59,12 @@ class PagesController extends Controller
         $query = $request->input('query');
 
         $posts = Post::search($query)->paginate(20);
+        $posts->map(function ($post) {
+            $redis = Redis::connection();
+            $post->views = $redis->get('post:' . $post->id . ':views');
+            $post->title = substr($post->title , 0, 50).'...';
+            return $post;
+        });
         return view('pages.search_results', compact('posts'));
     }
 

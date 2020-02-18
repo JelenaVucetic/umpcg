@@ -32,6 +32,9 @@
                        </a>
                    </div>
                </div>
+               @php
+               $rowCount++;
+               @endphp
                @else
                <div class="col-md-4" style="padding-top: 30px;">
                    <div class="postBox">

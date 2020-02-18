@@ -2,7 +2,7 @@
     <div class="container-fluid myNav">
         <div>
             <button> <a href="/become_member"> POSTANI ČLAN</a></button>
-            <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan" style="width: 25px;margin-left: 5px;">
+            <a href="/become_member">  <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan" style="width: 25px;margin-left: 5px;"></a>
         </div>
         <div>
             <a href="/"> <img src="/img/UMPCG_logo.svg" alt="umpcg"></a>

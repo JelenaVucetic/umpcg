@@ -7,10 +7,15 @@
         <img class="singlePost" src="/storage/cover_images/{{$post->cover_image}}">
         <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
         <h1 style="color:#292663; margin: 10px 0;font-size: 28px;">{{$post->title}}</h1>
-        <div style="display:flex;align-items: center;">
-            <small> <img src="/img/Pregledi-ikonica copy.svg" alt=""> {{$views}} pregleda</small>
+        <div style="display:flex;align-items: center; margin: 25px 0;">
+            <small style="white-space:nowrap;"> <img src="/img/Pregledi-ikonica copy.svg" alt=""> {{$views}} pregleda</small>
             <div class="shareBtn">
                 <img src="/img/Icons_with_numbers.svg" alt=""><span>Podijeli</span>
+                <ul style="list-style:none;">
+                    <li><a href=""> <img src="/img/facebook.svg" alt="" style="width:20px;"> </a></li>
+                    <li><a href=""> <img src="/img/instagram.svg" alt="" style="width:20px;"> </a></li>
+                    <li><a href=""> <img src="/img/twitter.svg" alt="" style="width:20px;"> </a></li>
+                </ul>
             </div>
         </div>
           <p> {!!$post->body!!}</p>
@@ -42,11 +47,11 @@
                     <a href="/posts/{{$post->id}}">
                         <span class="category" ></span>
                         <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
-                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;">
-                        <h3>{{$post->title}}</h3>
+                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
+                        <h3 style="font-size: 22px;">{{$post->title}}</h3>
                         <div>
                             @if($views)
-                                <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">{{$views}} pregleda</small>
+                                <small  style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:5px">{{$views}} pregleda</small>
                             @endif
                        </div>
                     </a>
