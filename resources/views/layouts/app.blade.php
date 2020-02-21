@@ -29,6 +29,7 @@
 </head>
 <body style="font-family: 'Roboto'; background-color:white !important;">
     <div id="app">
+        <img src="/img/Drop down strelica.svg" alt="" onclick="topFunction()" id="myBtn" title="Go to top">
         @include('inc.navbar')
         <div class="container">
             @include('inc.messages')

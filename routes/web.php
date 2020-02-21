@@ -27,6 +27,7 @@ Route::get('/users/{id}/{name}', function($id, $name){
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/become_member', 'PagesController@becomeMember')->name('become_member');
+Route::post('/addMember', 'PagesController@addMember')->name('addMember');
 Route::get('/members', 'PagesController@members')->name('members');
 Route::get('/activities', 'PagesController@activities')->name('activities');
 

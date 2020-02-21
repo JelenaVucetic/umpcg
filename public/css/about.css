@@ -32,6 +32,23 @@
     text-align: center;
 }
 
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    border-bottom: 3px solid #EFEFEF;
+}
+
+.info div {
+    display: flex;
+}
+
+.info div p {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #292663 !important;
+}
+
 @media only screen and (max-width : 768px) {
     .presidents {
         flex-direction: column;
@@ -44,4 +61,13 @@
     #aboutImg {
         width: 100%;
     }
+
+    .info {
+      flex-direction: column;
+    }
+
+    .info div p {
+        font-size: 16px !important;
+    }
+    
 }

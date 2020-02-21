@@ -3,6 +3,20 @@
 @section('content')
 {!! Breadcrumbs::render('about') !!}
 <section id="aboutSection">
+    <div class="info">
+        <div class='phone'>
+            <img src="/img/tel.svg" alt="">
+            <p>069 499 884 <br> 067 115 105</p>
+        </div>
+        <div class="mail">
+            <img src="/img/mail.svg" alt="">
+            <p>info@umpcg.me <br> unijamladihpreduzetnika@gmail.com</p>
+        </div>
+        <div class="account">
+            <img src="/img/racun.svg" alt="">
+            <p>ŽR: <br> 530-25514-04 NLB</p>
+        </div>
+    </div>
     <h3>MISIJA & VIZIJA</h3>
     <div>
         <p>Unija mladih preduzetnika Crne Gore pruža podršku mladim preduzetnicama i preduzetnicima sa teritorije Crne Gore da svoje biznise unaprijede kroz raznovrsne obuke, programe, aktivnosti i umrežavanje. UMPCG nastoji da promoviše i podstiče preduzetnički duh i saradnju među mladima, na lokalnom, nacionalnom i internacionalnom nivou.</p>

@@ -15,8 +15,8 @@
 }
 
 .contactForm div input{
-  width: 467px;
-  height: 43px;
+  width: 500px;
+  height: 50px;
   padding:20px;
   margin: 10px;
   border: 1px solid #C4C4C4;
@@ -26,6 +26,24 @@
 .contactForm div input::placeholder{
     color: #B5B5B5;
   }
+
+.socialMediaInput {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.socialMediaInput input {
+    width: 500px;
+    height: 50px;
+    padding:20px;
+    margin: 10px;
+    border: 1px solid #C4C4C4;
+    border-radius: 3px;
+}
+.socialMediaInput input::placeholder {
+    color: #B5B5B5;
+}
 
 .contactForm label {
     padding: 12px;
@@ -54,8 +72,8 @@
 }
 
 #submitBtn button {
-    width: 150px;
-    height: 30px;
+    width: 170px;
+    height: 35px;
     background: #F15B5B 0% 0% no-repeat padding-box;
     border: none;
     border-radius: 3px;
@@ -68,8 +86,8 @@
 }
 
 textarea {
-    width: 91%;
-    margin-left: 50px;
+    width: 95%;
+    margin-left: 34px;
     padding: 20px;
     padding-bottom: 50px;
     border: 1px solid #C4C4C4;
@@ -86,13 +104,24 @@ textarea::placeholder{
     display: flex;
     justify-content: space-between;
     color: #B5B5B5;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .jcarousel-control-prev, .jcarousel-control-next {
  background: none;
 }
 
+#facebook {
+    background-image: url('/img/iconfinder_facebook.svg');
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+#instagram {
+    background-image: url('/img/insta.svg');
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
 
 @media only screen and (max-width : 992px) {
     .contactForm {
@@ -106,6 +135,16 @@ textarea::placeholder{
     .carousel-inner {
         width: 100%;
         margin-left: 120px;
+    }
+
+    .socialMediaInput {
+        width: 80%;
+        margin: auto;
+        flex-direction: column;
+    }
+
+    .socialMediaInput input {
+        width: 100%;
     }
 
     textarea {

@@ -165,6 +165,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Hootlex\Moderation\ModerationServiceProvider::class,
 
         /*
          * Package Service Providers...

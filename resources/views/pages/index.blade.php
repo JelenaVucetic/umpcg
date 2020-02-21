@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<img src="/img/Drop down strelica.svg" alt="" onclick="topFunction()" id="myBtn" title="Go to top">
+
 {!! Breadcrumbs::render('home') !!}
     @if(count($posts) > 0)
            @php
@@ -25,9 +25,7 @@
                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
                        <h3>{{$post->title}}</h3>
                        <div>
-                       @if($post->views)
-                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">{{$post->views}} pregleda</small>
-                        @endif
+                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">2k pregleda</small>
                        </div>
                        </a>
                    </div>
@@ -48,9 +46,7 @@
                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
                        <h3>{{$post->title}}</h3>
                        <div>
-                       @if($post->views)
-                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">{{$post->views}} pregleda</small>
-                        @endif
+                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">2k pregleda</small>
                        </div>
                        </a>
                    </div>

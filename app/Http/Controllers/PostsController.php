@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
+use App\PostView;
 use Illuminate\Support\Facades\Auth;
 use DB;
-use Illuminate\Support\Facades\Redis;
 
 class PostsController extends Controller
 {
@@ -56,7 +56,6 @@ class PostsController extends Controller
             'cover_image' => 'image|nullable|max:1999',
             'category' => 'required'
         ]);
-
         // Handle File Upload
         if($request->hasFile('cover_image')){
             // Get filename with the extension
@@ -93,15 +92,13 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $storage = Redis::connection();
-        $views = $storage->incr('post:' . $id . ':views');
-        
         $post = Post::find($id);
+
         $posts = Post::orderBy('created_at','desc')->paginate(500);
         $posts->map(function ($post) {
             $post->title = substr($post->title , 0, 50);
         });
-        return view('posts.show', compact('post', 'posts', 'views'));
+        return view('posts.show', compact('post', 'posts'));
     }
 
     /**
