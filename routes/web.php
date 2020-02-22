@@ -26,9 +26,6 @@ Route::get('/users/{id}/{name}', function($id, $name){
 
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
-Route::get('/become_member', 'PagesController@becomeMember')->name('become_member');
-Route::post('/addMember', 'PagesController@addMember')->name('addMember');
-Route::get('/members', 'PagesController@members')->name('members');
 Route::get('/activities', 'PagesController@activities')->name('activities');
 
 Route::get('/search', 'PagesController@search')->name('search');
@@ -37,3 +34,11 @@ Route::resource('posts', 'PostsController');
 Auth::routes(['register' => false]);
 
 Route::get('/dashboard', 'DashboardController@index');
+
+
+Route::get('/members', 'MembersController@index')->name('members');
+Route::get('/become_member', 'MembersController@becomeMember')->name('become_member');
+Route::post('/addMember', 'MembersController@addMember')->name('addMember');
+Route::get('/showMembers', 'MembersController@showMembers');
+Route::get('edit/{id}','MembersController@edit');
+Route::post('edit/{id}','MembersController@update');

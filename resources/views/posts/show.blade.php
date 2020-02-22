@@ -8,7 +8,7 @@
         <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
         <h1 style="color:#292663; margin: 10px 0;font-size: 28px;">{{$post->title}}</h1>
         <div style="display:flex;align-items: center; margin: 25px 0;">
-            <small style="white-space:nowrap;"> <img src="/img/Pregledi-ikonica copy.svg" alt=""> 2k pregleda</small>
+            <small style="white-space:nowrap;"> <img src="/img/Pregledi-ikonica copy.svg" alt=""> {{ $post->views }} pregleda</small>
             <div class="shareBtn">
                 <img src="/img/Icons_with_numbers.svg" alt=""><span>Podijeli</span>
                 <ul style="list-style:none;">
@@ -50,7 +50,7 @@
                         <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
                         <h3 style="font-size: 22px;">{{$post->title}}</h3>
                         <div>
-                            <small  style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:5px">2k pregleda</small>     
+                            <small  style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:5px">{{ $post->views }} pregleda</small>     
                        </div>
                     </a>
                 </div>

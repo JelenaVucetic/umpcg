@@ -93,7 +93,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-
+        $post->increment('views');
         $posts = Post::orderBy('created_at','desc')->paginate(500);
         $posts->map(function ($post) {
             $post->title = substr($post->title , 0, 50);

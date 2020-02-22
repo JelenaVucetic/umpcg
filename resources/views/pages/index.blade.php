@@ -25,7 +25,7 @@
                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
                        <h3>{{$post->title}}</h3>
                        <div>
-                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">2k pregleda</small>
+                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">{{ $post->views }} pregleda</small>
                        </div>
                        </a>
                    </div>
@@ -46,7 +46,7 @@
                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
                        <h3>{{$post->title}}</h3>
                        <div>
-                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">2k pregleda</small>
+                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">{{ $post->views }} pregleda</small>
                        </div>
                        </a>
                    </div>

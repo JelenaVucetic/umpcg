@@ -14,6 +14,7 @@ class CreateMembersTable extends Migration
     public function up()
     {
         Schema::create('members', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('jmbg');
@@ -31,6 +32,7 @@ class CreateMembersTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('image');
+            $table->dateTime('moderated_at')->nullable();
             $table->timestamps();
         });
     }

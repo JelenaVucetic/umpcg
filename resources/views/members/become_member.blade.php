@@ -119,7 +119,7 @@
                         <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
                         <h3 style="font-size: 22px;">{{$post->title}}</h3>
                         <div>
-                            <small style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:5px">2k pregleda</small>
+                            <small style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:5px">{{ $post->views }} pregleda</small>
                        </div>
                     </a>
                 </div>
