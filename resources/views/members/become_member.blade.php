@@ -69,32 +69,32 @@
     {{ csrf_field() }}
         <div class="contactForm">
             <div>
-                <input type="text" name="firstname" placeholder="Ime *"  required>
-                <input type="text" name="lastname" placeholder="Prezime *" required>
-                <input type="text" name="jmbg" placeholder="JMBG *" required>
-                <input type="text" name="place" placeholder="Mjesto Prebivalista *" required>
-                <input type="text" name="phone" placeholder="Telefon *" required>
-                <input type="email" name="email" placeholder="E-mail *" required>              
-                <input id="fileInput" name="image" type="file" style="display:none;">
+                <input type="text" name="firstname" placeholder="Ime *" value="{{ old('firstname') }}"  required>
+                <input type="text" name="lastname" placeholder="Prezime *" value="{{ old('lastname') }}" required>
+                <input type="text" name="jmbg" placeholder="JMBG *" value="{{ old('jmbg') }}" required>
+                <input type="text" name="place" placeholder="Mjesto Prebivalista *" value="{{ old('place') }}" required>
+                <input type="text" name="phone" placeholder="Telefon *" value="{{ old('phone') }}" required>
+                <input type="email" name="email" placeholder="E-mail *" value="{{ old('email') }}" required>              
+                <input id="fileInput" name="image" type="file" style="display:none;"  value="{{ old('image') }}">
                 <label for="fileInput"><img src="/img/Upload.svg" alt=""><span> Uploaduj svoj logo </span> </label>
             </div>
             <div>
-                <input type="text" name="company" placeholder="Naziv firme">
-                <input type="text" name="pib" placeholder="PIB">
-                <input type="text" name="date" placeholder="Datum osnivanja">
-                <input type="text" name="address" placeholder="Adresa firme">
-                <input type="text" name="web" placeholder="Web adresa">
-                <input type="text" name="work" placeholder="Osnovna djelatnost">
-                <input type="text" name="organization" placeholder="Oblik organizacije">
+                <input type="text" name="company" placeholder="Naziv firme"  value="{{ old('company') }}">
+                <input type="text" name="pib" placeholder="PIB"  value="{{ old('pib') }}">
+                <input type="text" name="date" placeholder="Datum osnivanja"  value="{{ old('date') }}">
+                <input type="text" name="address" placeholder="Adresa firme"  value="{{ old('address') }}">
+                <input type="text" name="web" placeholder="Web adresa"  value="{{ old('web') }}">
+                <input type="text" name="work" placeholder="Osnovna djelatnost"  value="{{ old('work') }}">
+                <input type="text" name="organization" placeholder="Oblik organizacije"  value="{{ old('organization') }}">
             </div>
         </div>
-        <textarea name="description" id="" placeholder="Kratak opis vaše kompanije"></textarea>
+        <textarea name="description" id="" placeholder="Kratak opis vaše kompanije">{{ old('description') }}</textarea>
         <div class="textareaLimit">
             <span>220-250 karaktera</span> <span>Unijeto <span id="characters">0 </span>  karatkera</span>
         </div>
         <div class="socialMediaInput">
-            <input type="text" name="facebook" placeholder="Facebook stranica" id="facebook">
-            <input type="text" name="instagram" placeholder="Instagram profile" id="instagram">
+            <input type="text" name="facebook" placeholder="Facebook stranica" id="facebook"  value="{{ old('facebook') }}">
+            <input type="text" name="instagram" placeholder="Instagram profile" id="instagram"  value="{{ old('instagram') }}">
         </div>
         <div id="submitBtn">
              <button type="submit">POŠALJI ZAHTJEV</button>
@@ -116,10 +116,12 @@
                     <a href="/posts/{{$post->id}}">
                         <span class="category" ></span>
                         <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
-                        <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
+                        <div id="imgDiv">
+                            <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
+                        </div>
                         <h3 style="font-size: 22px;">{{$post->title}}</h3>
                         <div>
-                            <small style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:5px">{{ $post->views }} pregleda</small>
+                            <small style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:10px">{{ $post->views }} pregleda</small>
                        </div>
                     </a>
                 </div>

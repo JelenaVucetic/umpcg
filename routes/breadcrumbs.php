@@ -3,7 +3,7 @@
 // Home
 Breadcrumbs::register('home', function($breadcrumbs)
 {
-    $breadcrumbs->push('Naslovna', route('home'));
+    $breadcrumbs->push('Naslovna (aktuelno)', route('home'));
 });
 
 // Home > About

@@ -166,6 +166,8 @@ return [
         Unisharp\Ckeditor\ServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Hootlex\Moderation\ModerationServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
@@ -232,6 +234,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 

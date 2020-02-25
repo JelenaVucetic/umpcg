@@ -2,7 +2,7 @@
     <div class="container-fluid myNav">
         <div>
             <button> <a href="/become_member"> POSTANI ČLAN</a></button>
-            <a href="/become_member">  <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan" style="width: 25px;margin-left: 5px;"></a>
+            <a href="/become_member">  <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan" style="width: 23px;margin-left: 5px;"></a>
         </div>
         <div>
             <a href="/"> <img src="/img/UMPCG_logo.svg" alt="umpcg"></a>
@@ -16,7 +16,7 @@
     </div>
 </nav>
 
-<nav class="navbar">
+<nav class="navbar" id="navbar" style="z-index: 999;"> 
     <div class='mobile'>
             <form  action="{{ route('search') }}" method='get'>
                 <input name="query" id="query" value="{{ request()->input('query') }}" placeholder="Search...">
@@ -36,7 +36,7 @@
         <div class="desctop">
             <div style="display:flex;">
                 <div class="search-container">
-                    <form action="{{ route('search') }}" method='get'>
+                    <form action="{{ route('search') }}" method='get' style="padding: 3px;">
                         <button type="submit"><i class="fa fa-search"></i></button>
                         <input type="text" name="query" id="query" value="{{ request()->input('query') }}">
                     </form>
@@ -45,7 +45,7 @@
             <ul class="nav navbar-nav pages" id="navPages">
               <li><a href="/members">Članovi</a></li>
               <li><a href="/activities">Aktivnosti</a></li>
-              <li><a href="">E-Books</a></li>
+              <li><a href="/eBooks">E-Books</a></li>
             </ul> 
             <ul class="nav navbar-nav navbar-right socialMedia">
                 <!-- Authentication Links -->
@@ -60,7 +60,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/dashboard">Dashboard</a></li>
+                            <li><a href="/dashboard">Članci</a></li>
                             <li><a href="/showMembers">Članovi</a></li>
                             <li>
                                 <a href="{{ route('logout') }}"

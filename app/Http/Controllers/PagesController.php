@@ -13,7 +13,7 @@ class PagesController extends Controller
     public function index(){
         $posts = Post::orderBy('created_at','desc')->paginate(500);
         $posts->map(function ($post) {
-            $post->title = substr($post->title , 0, 50).'...';
+            $post->title = substr($post->title , 0, 70);
             return $post;
         });
         return view('pages.index')->with('posts', $posts);
@@ -21,6 +21,10 @@ class PagesController extends Controller
 
     public function about(){
         return view('pages.about');
+    }
+
+    public function eBooks(){
+        return view('pages.eBooks');
     }
 
 
@@ -31,7 +35,7 @@ class PagesController extends Controller
     public function activities () {
         $posts = Post::orderBy('created_at','desc')->where('category' ,'ostalo')->paginate(500);
         $posts->map(function ($post) {
-            $post->title = substr($post->title , 0, 50).'...';
+            $post->title = substr($post->title , 0, 50);
             return $post;
         });
         return view('pages.activities', compact('posts'));
@@ -47,7 +51,7 @@ class PagesController extends Controller
 
         $posts = Post::search($query)->paginate(20);
         $posts->map(function ($post) {
-            $post->title = substr($post->title , 0, 50).'...';
+            $post->title = substr($post->title , 0, 50);
             return $post;
         });
         return view('pages.search_results', compact('posts'));

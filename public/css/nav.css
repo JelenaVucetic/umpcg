@@ -48,7 +48,7 @@
 
 #aboutIco {
     padding-right: 10px;
-    width: 22px;
+    width: 23px;
 }
 
 .aboutUs{
@@ -70,7 +70,7 @@
  
 .search-container {
     padding: 10px;
-    width: 250px;
+    width: 260px;
 }
 
 .search-container input {
@@ -78,13 +78,13 @@
     border: none;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
-    width: 130px;
+    width: 140px;
     box-sizing: border-box;
     font-size: 12px;
     background-color: white;
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 15px 12px 15px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
     outline:none;
@@ -106,8 +106,8 @@
 
 .pages li a {
     text-decoration: none;
-    color: #2D2D2D;
-    font-weight: 600;
+    color: #6166AF;
+    font-weight: 500;
 }
 
 #mySecondNav {
@@ -144,6 +144,19 @@
 .mobile {
     display: none;
 }
+
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+.sticky + .content {
+padding-top: 60px;
+}
+
+
 @media only screen and (max-width : 992px) {
     .myNav button {
         display: none;

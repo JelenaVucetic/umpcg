@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Member;
 use App\Mail\Membership;
-use Illuminate\Support\Facades\Mail;
+use Mail;
 use Illuminate\Http\Request;
 
 class MembersController extends Controller
@@ -32,12 +32,14 @@ class MembersController extends Controller
         $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
-            'image' => 'image|nullable|max:1999',
-            'jmbg' => 'required|numeric|digits:13',
+            'image' => 'nullable|max:1999',
+            'jmbg' => 'required|size:13',
             'place' => 'required',
             'phone' => 'required',
             'email' => 'required|email',
+            'description' => 'min:220|max:250'
         ]);
+
         if($request->hasFile('image')){
             // Get filename with the extension
             $filenameWithExt = $request->file('image')->getClientOriginalName();
@@ -77,10 +79,13 @@ class MembersController extends Controller
 
         $member->save();
         
-     Mail::to('jelenavucetic24@gmail.com')->send(new Membership($member));
+        //Mail::to('jelenavucetic24@gmail.com')->send(new Membership($member));
+        Mail::send(['text'=>'mail'], ['name', $member->firstname], function($message) {
+            $message->to('jelenavucetic24@gmail.com')->subject('Zahtjev za članstvo');
+            $message->from('gajevicp0@gmail.com');
+        });
 
-
-        return redirect()->back()->with('success', 'Postali ste član Unije Mladih Preduzetnika');
+        return redirect()->back()->with('success', 'Uspješno ste poslali zahtjev za članstvo');
     }
 
     public function showMembers() {

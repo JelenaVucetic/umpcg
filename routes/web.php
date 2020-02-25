@@ -27,6 +27,7 @@ Route::get('/users/{id}/{name}', function($id, $name){
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/activities', 'PagesController@activities')->name('activities');
+Route::get('/eBooks', 'PagesController@eBooks')->name('eBooks');
 
 Route::get('/search', 'PagesController@search')->name('search');
 

@@ -75,15 +75,38 @@
     $('textarea').keyup(updateCount);
     $('textarea').keydown(updateCount);
 
-function updateCount() {
-    var cs = $(this).val().length;
-    $('#characters').text(cs);
-}
+    function updateCount() {
+        var cs = $(this).val().length;
+        $('#characters').text(cs);
+    }
+</script>
+<script>
+    $('#title').keyup(updateCount);
+    $('#title').keydown(updateCount);
+
+    function updateCount() {
+        var cs = $(this).val().length;
+        $('#char').text(cs);
+    }
 </script>
 <script>
     $(function() {
         $(".random").html($(".random").children().sort(function() { return 0.5 - Math.random() }));
         });
+</script>
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+    if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+    } else {
+        navbar.classList.remove("sticky");
+    }
+    }
 </script>
 </body>
 </html>

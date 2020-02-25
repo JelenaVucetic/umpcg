@@ -8,6 +8,7 @@ use App\Post;
 use App\PostView;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Image;
 
 class PostsController extends Controller
 {
@@ -51,12 +52,12 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
+            'title' => 'required|max:70',
             'body' => 'required',
-            'cover_image' => 'image|nullable|max:1999',
+            'cover_image' => 'nullable|max:1999',
             'category' => 'required'
         ]);
-        // Handle File Upload
+    /*     // Handle File Upload
         if($request->hasFile('cover_image')){
             // Get filename with the extension
             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
@@ -68,19 +69,49 @@ class PostsController extends Controller
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+
+            $img = Image::make(storage_path('storage/cover_images' . $fileNameToStore))->resize(400, 150, function($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save();
+            
         } else {
             $fileNameToStore = 'noimage.jpg';
-        }
+        } */
 
+        if($request->hasFile('cover_image')) {
+            //get filename with extension
+            $filenamewithextension = $request->file('cover_image')->getClientOriginalName();
+     
+            //Get just filename
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+     
+            //get file extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+     
+            //filename to store
+            $filenametostore = $filename.'_'.time().'.'.$extension;
+     
+            //Upload File
+            $request->file('cover_image')->storeAs('public/cover_image', $filenametostore);
+            $request->file('cover_image')->storeAs('public/cover_image/thumbnail', $filenametostore);
+     
+            //Resize image here
+            $thumbnailpath = public_path('storage/cover_image/thumbnail/'.$filenametostore);
+            $img = Image::make($thumbnailpath)->fit(320, 170, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save($thumbnailpath);
+    
+        }
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
-        $post->cover_image = $fileNameToStore;
+        $post->cover_image = $filenametostore;
         $post->category = $request->category;
         $post->save();
-
         return redirect('/')->with('success', 'Članak je uspješno kreiran');
     }
 
@@ -138,20 +169,30 @@ class PostsController extends Controller
             'body' => 'required'
         ]);
 		$post = Post::find($id);
-         // Handle File Upload
-        if($request->hasFile('cover_image')){
-            // Get filename with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
+                
+        if($request->hasFile('cover_image')) {
+            //get filename with extension
+            $filenamewithextension = $request->file('cover_image')->getClientOriginalName();
+
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+            //get file extension
             $extension = $request->file('cover_image')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-            // Delete file if exists
-            Storage::delete('public/cover_images/'.$post->cover_image);
+
+            //filename to store
+            $filenametostore = $filename.'_'.time().'.'.$extension;
+
+            //Upload File
+            $request->file('cover_image')->storeAs('public/cover_image', $filenametostore);
+            $request->file('cover_image')->storeAs('public/cover_image/thumbnail', $filenametostore);
+
+            //Resize image here
+            $thumbnailpath = public_path('storage/cover_image/thumbnail/'.$filenametostore);
+            $img = Image::make($thumbnailpath)->resize(320, 170, function($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save($thumbnailpath);
         }
 
         // Update Post
@@ -159,7 +200,7 @@ class PostsController extends Controller
         $post->body = $request->input('body');
         $post->category = $request->category;
         if($request->hasFile('cover_image')){
-            $post->cover_image = $fileNameToStore;
+            $post->cover_image = $filenametostore;
         }
         $post->save();
 

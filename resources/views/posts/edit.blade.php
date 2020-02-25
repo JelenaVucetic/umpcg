@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Edit Post</h1>
+    <h1>Izmijeni članak</h1>
     {!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     {{ csrf_field() }}
         <div class="form-group">
-            {{Form::label('title', 'Title')}}
-            {{Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Title'])}}
+            {{Form::label('title', 'Naslov')}}
+            {{Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Naslov'])}}
         </div>
         <div class="form-group">
-            {{Form::label('body', 'Body')}}
-            {{Form::textarea('body', $post->body, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
+            {{Form::label('body', 'Tekst članka')}}
+            {{Form::textarea('body', $post->body, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Tekst članka'])}}
         </div>
         <div class="form-group">
             <select name="category">

@@ -1,44 +1,42 @@
 @extends('layouts.app')
-@section('content')
+@section('members')
 
-<div class="container">
-    <br />
     <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Ime</th>
-        <th>Prezime</th>
-        <th>Jmbg</th>
-        <th>Mjesto prebivalista</th>
-        <th>Telefon</th>
-        <th>E-mail</th>
-        <th>Logo</th>
-        <th>Naziv firme</th>
-        <th>Pib</th>
-        <th>Datum osnivanja</th>
-        <th>Adresa firme</th>
-        <th>Web adresa</th>
-        <th>Osnovna djelatnost</th>
-        <th>Oblik organizacije</th>
-        <th>Opis</th>
-        <th>Facebook stranica</th>
-        <th>Instagram stranica</th>
-        <th>Status</th>
-        <th>Akcija</th>
+        <th>#</th>
+        <th class="th-lg">Ime</th>
+        <th class="th-lg">Prezime</th>
+        <th class="th-lg">Jmbg</th>
+        <th class="th-lg">Mjesto prebivalista</th>
+        <th class="th-lg">Telefon</th>
+        <th class="th-lg">E-mail</th>
+        <th class="th-lg">Logo</th>
+        <th class="th-lg">Naziv firme</th>
+        <th class="th-lg">Pib</th>
+        <th class="th-lg">Datum osnivanja</th>
+        <th class="th-lg">Adresa firme</th>
+        <th class="th-lg">Web adresa</th>
+        <th class="th-lg">Osnovna djelatnost</th>
+        <th class="th-lg">Oblik organizacije</th>
+        <th class="th-lg">Opis</th>
+        <th class="th-lg">Facebook stranica</th>
+        <th class="th-lg">Instagram stranica</th>
+        <th class="th-lg">Status</th>
+        <th class="th-lg">Akcija</th>
       </tr>
     </thead>
     <tbody>
     @foreach($members as $member)
       <tr>
-        <td>{{$member->id}}</td>
+      <th scope="row">{{$member->id}}</th>
         <td>{{$member->firstname}}</td>
         <td>{{$member->lastname}}</td>
         <td>{{$member->jmbg}}</td>
         <td>{{$member->place}}</td>
         <td>{{$member->phone}}</td>
         <td>{{$member->email}}</td>
-        <td>  <img id="" src="/storage/cover_images/{{$member->image}}"></td>
+        <td>  <img id="" src="/storage/cover_images/{{$member->image}}" style="width:100px;"></td>
         <td>{{$member->company}}</td>
         <td>{{$member->pib}}</td>
         <td>{{$member->date}}</td>
@@ -65,5 +63,4 @@
       @endforeach
     </tbody>
   </table>
-  </div>
  @endsection

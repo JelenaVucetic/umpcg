@@ -23,11 +23,13 @@
                    <a href="/posts/{{$post->id}}">    
                    <span class="categoryActivities" ></span>
                        <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
-                       <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
+                       <div id="imgDiv">
+                            <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
+                        </div>
                        <h3>{{$post->title}}</h3>
                        <div>
                        @if($post->views)
-                           <small> <img src="/img/Pregledi-ikonica copy.svg" alt=""> {{$post->views}} pregleda</small>
+                           <small> <img src="/img/Pregledi-ikonica copy.svg" alt=""  style="margin-right: 10px;"> {{$post->views}} pregleda</small>
                         @endif
                        </div>
                     </a>
