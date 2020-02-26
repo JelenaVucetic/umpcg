@@ -5,7 +5,7 @@
             <a href="/become_member">  <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan" style="width: 23px;margin-left: 5px;"></a>
         </div>
         <div>
-            <a href="/"> <img src="/img/UMPCG_logo.svg" alt="umpcg"></a>
+            <a href="/"> <img src="/img/UMPCG_logo.svg" alt="umpcg" style="width:125px;"></a>
         </div>
         <a href="/about" style="text-decoration: none;">
             <div class="aboutUs">
@@ -50,9 +50,9 @@
             <ul class="nav navbar-nav navbar-right socialMedia">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href=""> <img src="/img/facebook.svg" alt="" style="width:20px;"> </a></li>
-                    <li><a href=""> <img src="/img/instagram.svg" alt="" style="width:20px;"> </a></li>
-                    <li><a href=""> <img src="/img/twitter.svg" alt="" style="width:20px;"> </a></li>
+                    <li><a href="https://www.facebook.com/unijamladihpreduzetnikaCG" target="_blank"> <img src="/img/facebook.svg" alt="" style="width:20px;"> </a></li>
+                    <li><a href="https://www.instagram.com/unijamladihpreduzetnika/" target="_blank"> <img src="/img/instagram.svg" alt="" style="width:20px;"> </a></li>
+                    <li><a href="https://twitter.com/umpcg" target="_blank"> <img src="/img/twitter.svg" alt="" style="width:20px;"> </a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -7,7 +7,7 @@
 
 #aboutSection p {
     color: #2D2D2D;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 #logoImg {
@@ -32,10 +32,16 @@
     text-align: center;
 }
 
+.presidents img{
+    width: 70%;
+}
+
 .info {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+    margin-bottom: 60px;
+    padding-bottom: 30px;
     border-bottom: 3px solid #EFEFEF;
 }
 
@@ -47,6 +53,25 @@
     margin-top: 10px;
     margin-left: 10px;
     color: #292663 !important;
+}
+
+.phone img{
+    height: 33px;
+    margin: auto;
+}
+
+.mail img{
+    height: 33px;
+    margin: auto;
+}
+
+.account img{
+    height: 33px;
+    margin: auto;
+}
+
+#aboutImg{
+    width: 100%;
 }
 
 @media only screen and (max-width : 768px) {
@@ -71,3 +96,4 @@
     }
     
 }
+

@@ -27,7 +27,7 @@
                        </div>
                        <h3>{{$post->title}}</h3>
                        <div>
-                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="">{{ $post->views }} pregleda</small>
+                        <small> <img src="/img/Pregledi-ikonica copy.svg" style="margin-right: 7px;" alt="">{{ $post->views }} pregleda</small>
                        </div>
                        </a>
                    </div>
@@ -50,7 +50,7 @@
                        </div>
                        <h3>{{$post->title}}</h3>
                        <div>
-                        <small> <img src="/img/Pregledi-ikonica copy.svg" alt="" >{{ $post->views }} pregleda</small>
+                        <small> <img src="/img/Pregledi-ikonica copy.svg" style="margin-right: 7px;" alt="" >{{ $post->views }} pregleda</small>
                        </div>
                        </a>
                    </div>

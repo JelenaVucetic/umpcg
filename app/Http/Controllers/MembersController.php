@@ -79,12 +79,8 @@ class MembersController extends Controller
 
         $member->save();
         
-        //Mail::to('jelenavucetic24@gmail.com')->send(new Membership($member));
-        Mail::send(['text'=>'mail'], ['name', $member->firstname], function($message) {
-            $message->to('jelenavucetic24@gmail.com')->subject('Zahtjev za članstvo');
-            $message->from('gajevicp0@gmail.com');
-        });
-
+        Mail::to('jelenavucetic24@gmail.com')->send(new Membership($member));
+ 
         return redirect()->back()->with('success', 'Uspješno ste poslali zahtjev za članstvo');
     }
 

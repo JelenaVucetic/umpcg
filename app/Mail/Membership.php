@@ -11,7 +11,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class Membership extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $details;
+    
     /**
      * Create a new message instance.
      *
@@ -29,7 +31,8 @@ class Membership extends Mailable
      */
     public function build()
     {
-        return $this->subject('Članstvo')
+        
+        return $this->from($this->details->email)->subject('Članstvo')
         ->view('emails.membership');
     }
 }

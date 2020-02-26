@@ -123,6 +123,13 @@ textarea::placeholder{
     background-position: 95%;
 }
 
+input[type="file"] { 
+    z-index: -1;
+    position: absolute;
+    opacity: 0;
+  }
+  
+
 @media only screen and (max-width : 992px) {
     .contactForm {
         flex-direction: column;

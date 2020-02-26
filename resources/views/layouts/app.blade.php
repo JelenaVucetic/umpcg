@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:image" content="http://umpcg.qqriq.me/img/UMPCG_logo.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://umpcg.qqriq.me/" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo_ico.ico" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -22,6 +27,7 @@
     <link href="{{ asset('css/singlePost.css') }}" rel="stylesheet">
     <link href="{{ asset('css/about.css') }}" rel="stylesheet">
     <link href="{{ asset('css/becomeMember.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/eBooks.css') }}" rel="stylesheet">
     <link href="{{ asset('css/members.css') }}" rel="stylesheet">
     <link href="{{ asset('css/activities.css') }}" rel="stylesheet">
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
@@ -106,6 +112,24 @@
     } else {
         navbar.classList.remove("sticky");
     }
+    }
+</script>
+<script>
+    var input = document.getElementById( 'file-upload' );
+    var infoArea = document.getElementById( 'file-upload-filename' );
+
+    input.addEventListener( 'change', showFileName );
+
+    function showFileName( event ) {
+    
+    // the change event gives us the input it occurred in 
+    var input = event.srcElement;
+    
+    // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+    var fileName = input.files[0].name;
+    
+    // use fileName however fits your app best, i.e. add it into a div
+    infoArea.textContent = fileName;
     }
 </script>
 </body>

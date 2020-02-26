@@ -76,7 +76,9 @@
                 <input type="text" name="phone" placeholder="Telefon *" value="{{ old('phone') }}" required>
                 <input type="email" name="email" placeholder="E-mail *" value="{{ old('email') }}" required>              
                 <input id="fileInput" name="image" type="file" style="display:none;"  value="{{ old('image') }}">
-                <label for="fileInput"><img src="/img/Upload.svg" alt=""><span> Uploaduj svoj logo </span> </label>
+                <input type="file" id="file-upload"/>
+                <label  for="file-upload" id="image1"><img src="/img/Upload.svg" alt=""><span> Uploaduj svoj logo </span> <br> <p id="file-upload-filename"></p> </label>
+        
             </div>
             <div>
                 <input type="text" name="company" placeholder="Naziv firme"  value="{{ old('company') }}">
@@ -103,6 +105,7 @@
 </section>
 
 
+
 @endsection
 
 @section('carousel')
@@ -117,11 +120,11 @@
                         <span class="category" ></span>
                         <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
                         <div id="imgDiv">
-                            <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
+                            <img id="postImg" src="/storage/cover_image/thumbnail/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
                         </div>
                         <h3 style="font-size: 22px;">{{$post->title}}</h3>
                         <div>
-                            <small style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:10px">{{ $post->views }} pregleda</small>
+                            <small style="display: flex;"> <img src="/img/Pregledi-ikonica copy.svg" alt="" style="margin-right:7px">{{ $post->views }} pregleda</small>
                        </div>
                     </a>
                 </div>

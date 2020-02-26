@@ -23,6 +23,7 @@
     color: white;
     border: none;
     font-size: 14px;
+    border-radius: 3px;
 }
 
 .myNav button:hover {
@@ -108,7 +109,12 @@
     text-decoration: none;
     color: #6166AF;
     font-weight: 500;
+    font-weight: 600;
 }
+.pages li a:hover {
+    color: #292663;
+}
+
 
 #mySecondNav {
     background: #EFEFEF;
