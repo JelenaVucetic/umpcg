@@ -81,16 +81,16 @@
         
             </div>
             <div>
-                <input type="text" name="company" placeholder="Naziv firme"  value="{{ old('company') }}">
-                <input type="text" name="pib" placeholder="PIB"  value="{{ old('pib') }}">
-                <input type="text" name="date" placeholder="Datum osnivanja"  value="{{ old('date') }}">
-                <input type="text" name="address" placeholder="Adresa firme"  value="{{ old('address') }}">
+                <input type="text" name="company" placeholder="Naziv firme *"  value="{{ old('company') }}">
+                <input type="text" name="pib" placeholder="PIB *"  value="{{ old('pib') }}">
+                <input type="text" name="date" placeholder="Datum osnivanja *"  value="{{ old('date') }}">
+                <input type="text" name="address" placeholder="Adresa firme *"  value="{{ old('address') }}">
                 <input type="text" name="web" placeholder="Web adresa"  value="{{ old('web') }}">
-                <input type="text" name="work" placeholder="Osnovna djelatnost"  value="{{ old('work') }}">
-                <input type="text" name="organization" placeholder="Oblik organizacije"  value="{{ old('organization') }}">
+                <input type="text" name="work" placeholder="Osnovna djelatnost *"  value="{{ old('work') }}">
+                <input type="text" name="organization" placeholder="Oblik organizacije *"  value="{{ old('organization') }}">
             </div>
         </div>
-        <textarea name="description" id="" placeholder="Kratak opis vaše kompanije">{{ old('description') }}</textarea>
+        <textarea name="description" id="" placeholder="Kratak opis vaše kompanije *">{{ old('description') }}</textarea>
         <div class="textareaLimit">
             <span>220-250 karaktera</span> <span>Unijeto <span id="characters">0 </span>  karatkera</span>
         </div>

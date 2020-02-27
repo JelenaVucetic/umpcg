@@ -15,6 +15,12 @@
     background: none;
    }
 
+@media (min-width:1000px) and (max-width:1550px){
+    .carouselPost {
+        width: 240px;
+    }
+}  
+
 @media only screen and (max-width : 760px) {
     .carousel-inner {
         width: 100% ;

@@ -37,7 +37,13 @@ class MembersController extends Controller
             'place' => 'required',
             'phone' => 'required',
             'email' => 'required|email',
-            'description' => 'min:220|max:250'
+            'description' => 'min:220|max:250',
+            'company' => 'required',
+            'pib' => 'required',
+            'date' => 'required',
+            'address' => 'required',
+            'work' => 'required',
+            'organization' => 'required'
         ]);
 
         if($request->hasFile('image')){

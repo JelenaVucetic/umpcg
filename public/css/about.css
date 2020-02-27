@@ -74,6 +74,11 @@
     width: 100%;
 }
 
+@media (min-width:1000px) and (max-width:1550px){
+    #aboutSection {
+        padding: 0 100px;
+    }
+}
 @media only screen and (max-width : 768px) {
     .presidents {
         flex-direction: column;

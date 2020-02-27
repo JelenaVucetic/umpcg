@@ -10,6 +10,10 @@
    width:55%;
 }
 
+#logoImage {
+    width:125px;
+}
+
 .navLeft {
     display:flex;
     justify-content:space-between;
@@ -39,7 +43,12 @@
 .nav > li > a > img:hover {
     transform: scale(1.1);
 }
-
+.fixed-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%; 
+}
 
 .member img {
     padding-left: 20px;
@@ -152,16 +161,116 @@
 }
 
 
-.sticky {
-    position: fixed;
+.mobile .mobileSearch {
+    position: absolute;
+    margin: 10px;
+    margin-left: 15px;
     top: 0;
-    width: 100%;
-  }
-  
-.sticky + .content {
-padding-top: 60px;
+    right: 290px;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #F15B5B;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+}
+.mobile .mobileSearch:hover {
+    cursor: pointer;
+}
+.mobile .mobileSearch::before {
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: 14px;
+    right: 290px;
+    bottom: 0;
+    left: 20px;
+    width: 4px;
+    height: 2px;
+    background: white;
+    transform: rotate(45deg);
+    transition: all 0.5s;
+}
+.mobile .mobileSearch::after {
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: -2px;
+    right: 290px;
+    bottom: 0;
+    left: 6px;
+    width: 17px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: all 0.5s;
+}
+.mobile input {
+    position: absolute;
+    margin: 10px;
+    margin-left: 15px;  
+    top: 0;
+    right: 290px;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    height: 30px;
+    padding-left: 30px;
+    outline: none;
+    border: none;
+    background: white;
+    color: #F15B5B;
+    border-radius: 3px;
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+}
+.mobile input:hover {
+    cursor: pointer;
+}
+.mobile input:focus {
+    width: 150px;
+    opacity: 1;
+    cursor: text;
+}
+.mobile input:focus ~ .mobileSearch {
+    right: 160px;
+    background: white;
+    z-index: 6;
+}
+.mobile input:focus ~ .mobileSearch::before {
+    top: 0;
+    left: 0;
+    width: 15px;
+    margin-left: 5px;
+    background: #F15B5B;
+}
+.mobile input:focus ~ .mobileSearch::after {
+    margin-left: 5px;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 2px;
+    border: none;
+    background: white;
+    border-radius: 0%;
+    transform: rotate(-45deg);
+    background: #F15B5B;
+}
+.mobile input::placeholder {
+    color: white;
+    opacity: 0.5;
+    font-weight: bolder;
 }
 
+#aktuelnosti {
+    display: none;
+}
 
 @media only screen and (max-width : 992px) {
     .myNav button {
@@ -244,110 +353,15 @@ padding-top: 60px;
     .navbar-toggle {
      padding: 9px 0  !important;
     }
+
+    #logoImage {
+        width:100px;
+    }
 }
 
 
-.mobile .mobileSearch {
-    position: absolute;
-    margin: 10px;
-    margin-left: 15px;
-    top: 0;
-    right: 290px;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 30px;
-    background: #F15B5B;
-    border-radius: 50%;
-    transition: all 1s;
-    z-index: 4;
-}
-.mobile .mobileSearch:hover {
-    cursor: pointer;
-}
-.mobile .mobileSearch::before {
-    content: "";
-    position: absolute;
-    margin: auto;
-    top: 14px;
-    right: 290px;
-    bottom: 0;
-    left: 20px;
-    width: 4px;
-    height: 2px;
-    background: white;
-    transform: rotate(45deg);
-    transition: all 0.5s;
-}
-.mobile .mobileSearch::after {
-    content: "";
-    position: absolute;
-    margin: auto;
-    top: -2px;
-    right: 290px;
-    bottom: 0;
-    left: 6px;
-    width: 17px;
-    height: 16px;
-    border-radius: 50%;
-    border: 2px solid white;
-    transition: all 0.5s;
-}
-.mobile input {
-    position: absolute;
-    margin: 10px;
-    margin-left: 15px;  
-    top: 0;
-    right: 290px;
-    bottom: 0;
-    left: 0;
-    width: 150px;
-    height: 30px;
-    padding-left: 30px;
-    outline: none;
-    border: none;
-    background: #F15B5B;
-    color: white;
-    border-radius: 30px;
-    transition: all 1s;
-    opacity: 0;
-    z-index: 5;
-    font-size: 12px;
-    font-weight: bolder;
-    letter-spacing: 0.1em;
-}
-.mobile input:hover {
-    cursor: pointer;
-}
-.mobile input:focus {
-    width: 150px;
-    opacity: 1;
-    cursor: text;
-}
-.mobile input:focus ~ .mobileSearch {
-    right: 160px;
-    background: #F15B5B;
-    z-index: 6;
-}
-.mobile input:focus ~ .mobileSearch::before {
-    top: 0;
-    left: 0;
-    width: 15px;
-    margin-left: 5px;
-}
-.mobile input:focus ~ .mobileSearch::after {
-    margin-left: 5px;
-    top: 0;
-    left: 0;
-    width: 15px;
-    height: 2px;
-    border: none;
-    background: white;
-    border-radius: 0%;
-    transform: rotate(-45deg);
-}
-.mobile input::placeholder {
-    color: white;
-    opacity: 0.5;
-    font-weight: bolder;
+@media only screen and (max-width : 760px) {
+    #aktuelnosti {
+        display: block;
+    }
 }

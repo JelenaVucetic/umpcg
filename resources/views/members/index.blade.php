@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('members')
-<div class="container-fluid" style="margin:0 125px;">
+<div class="container-fluid" id="breadSection">
 {!! Breadcrumbs::render('members') !!}
 </div>
 
@@ -20,11 +20,20 @@ $rowCount = 0;
                     <div class="overlay">
                         <div class="text">
                             <h4>{{ $member->company }}</h4>
+                            <hr width="25%">
                             <p class="description">{{ $member->description}}</p>
-                            <p>{{ $member->firstname}}</p>
-                            <p>{{ $member->work}}</p>
-                            <p>{{ $member->email}}</p>
-                            <p>{{ $member->web}}</p>
+                            <div id="firstname">
+                                <p>{{ $member->firstname}}</p>
+                            </div>
+                            <div id="work">
+                                <p>{{ $member->work}}</p>
+                            </div>
+                            <div id="email">
+                                <p>{{ $member->email}}</p>
+                            </div>
+                            <div id="web">
+                                <p>{{ $member->web}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

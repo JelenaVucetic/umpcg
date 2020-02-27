@@ -100,3 +100,9 @@
     background:none;
 }
 
+@media only screen and (max-width : 760px) {
+    #myBreadcrums .breadcrumb {
+        background-color: #EFEFEF;
+        padding: 15px 7%;
+    }
+}

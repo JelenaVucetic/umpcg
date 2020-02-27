@@ -4,7 +4,7 @@
 }
 
 .inner {
-    height: 400px;
+    height: 430px;
     border: 5px solid #EFEFEF;
     text-align: center;
     position: relative;
@@ -16,14 +16,22 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 280px;
+    width: 250px;
     height: 280px;
-    margin-top: -140px; /* Half the height */
-    margin-left: -140px; /* Half the width */
+    margin-top: -150px;
+    margin-left: -140px;
 }
 .inner:hover .overlay {
     opacity: 1;
   }
+  hr {
+    border: 0;
+    border-top: 2px solid #292663;
+    background-color: #292663;
+    margin-top: -15px;
+    margin-left: 0;
+    margin-bottom: 10px;
+}
   .text {
     color: white;
     font-size: 20px;
@@ -39,7 +47,6 @@
     text-align: start;
     color: #292663;
     font-weight: 600;
-    border-bottom: 2px solid #292663;
     padding: 20px 0;
 }
 
@@ -55,6 +62,33 @@
     color: grey;
     text-align: start;
     line-height: normal;
+    padding-left: 40px;
+    padding-top: 7px;
+}
+
+#firstname, #work, #email, #web {
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    height: 40px;
+}
+
+#firstname {
+    background-image: url('/img/Ikonica 1.svg');
+}
+#work {
+    background-image: url('/img/Ikonica 2.svg');
+}
+
+#email {
+    background-image: url('/img/Ikonica 3.svg');
+}
+
+#web {
+    background-image: url('/img/Ikonica 4.svg');
+}
+
+.text div img {
+    width: 50px;
 }
 
 .overlay {
@@ -70,6 +104,9 @@
     background-color: #EFEFEF;
   }
 
+  #breadSection {
+    margin:0 125px;
+  }
   
 @media (min-width:1300px) and (max-width:1550px){
      .inner img{
@@ -108,5 +145,11 @@
     .company {
         margin-bottom: 20px;
     }
+
+    #breadSection {
+        margin: 10px 0px;
+        margin-top:0;
+      }
+      
     
 }

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-{!! Breadcrumbs::render('about') !!}
 <section id="aboutSection">
+{!! Breadcrumbs::render('about') !!}
     <div class="info">
         <div class='phone'>
             <img src="/img/tel.svg" alt="">

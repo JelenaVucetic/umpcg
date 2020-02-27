@@ -5,7 +5,7 @@
             <a href="/become_member">  <img src="/img/Postani-clan-ikonica.svg" alt="postaniclan" style="width: 23px;margin-left: 5px;"></a>
         </div>
         <div>
-            <a href="/"> <img src="/img/UMPCG_logo.svg" alt="umpcg" style="width:125px;"></a>
+            <a href="/"> <img src="/img/UMPCG_logo.svg" alt="umpcg" id="logoImage"></a>
         </div>
         <a href="/about" style="text-decoration: none;">
             <div class="aboutUs">
@@ -16,7 +16,7 @@
     </div>
 </nav>
 
-<nav class="navbar" id="navbar" style="z-index: 999;"> 
+<nav class="navbar" id="navbar" style="z-index: 999;" > 
     <div class='mobile'>
             <form  action="{{ route('search') }}" method='get'>
                 <input name="query" id="query" value="{{ request()->input('query') }}" placeholder="Search...">
@@ -43,6 +43,7 @@
                 </div>
             </div>
             <ul class="nav navbar-nav pages" id="navPages">
+               <li id="aktuelnosti"><a href="/">Aktuelnosti</a></li>
               <li><a href="/members">Članovi</a></li>
               <li><a href="/activities">Aktivnosti</a></li>
               <li><a href="/eBooks">E-Books</a></li>

@@ -128,7 +128,14 @@ input[type="file"] {
     position: absolute;
     opacity: 0;
   }
-  
+@media (min-width:1000px) and (max-width:1550px){
+    .jcarousel-control-prev {
+        left: -70px;
+    }
+    .jcarousel-control-next {
+        right: -70px;
+    }
+}  
 
 @media only screen and (max-width : 992px) {
     .contactForm {
@@ -166,6 +173,10 @@ input[type="file"] {
     .textareaLimit {
         width: 85%;
         padding-left: 18px;
+    }
+
+    #submitBtn {
+       margin-top: 20px;
     }
 }
 

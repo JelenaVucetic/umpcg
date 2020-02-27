@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:image" content="http://umpcg.qqriq.me/img/UMPCG_logo.svg" />
+    <meta property="og:image" content="http://umpcg.qqriq.me/img/logo.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://umpcg.qqriq.me/" />
 
-    <link rel="shortcut icon" type="image/x-icon" href="/img/logo_ico.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo_icon.ico" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -100,20 +100,7 @@
         $(".random").html($(".random").children().sort(function() { return 0.5 - Math.random() }));
         });
 </script>
-<script>
-    window.onscroll = function() {myFunction()};
 
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-    } else {
-        navbar.classList.remove("sticky");
-    }
-    }
-</script>
 <script>
     var input = document.getElementById( 'file-upload' );
     var infoArea = document.getElementById( 'file-upload-filename' );
@@ -131,6 +118,17 @@
     // use fileName however fits your app best, i.e. add it into a div
     infoArea.textContent = fileName;
     }
+</script>
+<script>
+    $(window).scroll(function(){
+    if ($(window).scrollTop() >= 107) {
+        $('#navbar').addClass('fixed-header');
+    }
+    else {
+        $('#navbar').removeClass('fixed-header');
+    }
+});
+
 </script>
 </body>
 </html>

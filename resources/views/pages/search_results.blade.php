@@ -44,7 +44,7 @@
                 </div><div class="row">
                @endif
                @empty
-                <p>No posts found</p>
+                <p style="padding-left:20px;">Nije pronađen ni jedan članak.</p>
             @endforelse
            </div>
         {{$posts->links()}}
