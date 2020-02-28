@@ -33,9 +33,16 @@
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
+<style>
+    @media only screen and (max-width : 760px) {
+    #myBtn {
+        display: none !important;
+    }
+}
+</style>
 <body style="font-family: 'Roboto'; background-color:white !important;">
     <div id="app">
-        <img src="/img/Drop down strelica.svg" alt="" onclick="topFunction()" id="myBtn" title="Go to top">
+        <img src="/img/Ikonica za povratak na vrh.svg" alt="" onclick="topFunction()" id="myBtn" title="Go to top">
         @include('inc.navbar')
         <div class="container">
             @include('inc.messages')

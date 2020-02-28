@@ -41,5 +41,8 @@ Route::get('/members', 'MembersController@index')->name('members');
 Route::get('/become_member', 'MembersController@becomeMember')->name('become_member');
 Route::post('/addMember', 'MembersController@addMember')->name('addMember');
 Route::get('/showMembers', 'MembersController@showMembers');
+
 Route::get('edit/{id}','MembersController@edit');
-Route::post('edit/{id}','MembersController@update');
+Route::post('/update/{id}','MembersController@update');
+
+Route::delete('/members/{id}', 'MembersController@destroy');

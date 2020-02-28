@@ -51,10 +51,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'title' => 'required|max:70',
             'body' => 'required',
-            'cover_image' => 'nullable|max:1999',
+            'date' => 'required',
+            'cover_image' => 'required|nullable|max:1999',
             'category' => 'required'
         ]);
     /*     // Handle File Upload
@@ -80,6 +82,8 @@ class PostsController extends Controller
         } */
 
         if($request->hasFile('cover_image')) {
+
+            $photo = $request->file('cover_image');
             //get filename with extension
             $filenamewithextension = $request->file('cover_image')->getClientOriginalName();
      
@@ -98,7 +102,7 @@ class PostsController extends Controller
      
             //Resize image here
             $thumbnailpath = public_path('storage/cover_image/thumbnail/'.$filenametostore);
-            $img = Image::make($thumbnailpath)->fit(320, 170, function ($constraint) {
+            $img = Image::make($photo->getRealPath())->fit(320, 170, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->save($thumbnailpath);
@@ -108,6 +112,7 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->date = $request->input('date');
         $post->user_id = auth()->user()->id;
         $post->cover_image = $filenametostore;
         $post->category = $request->category;
@@ -147,11 +152,6 @@ class PostsController extends Controller
             return redirect('/')->with('error', 'No Post Found');
         }
 
-        // Check for correct user
-        if(auth()->user()->id !==$post->user_id){
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
-
         return view('posts.edit')->with('post', $post);
     }
 
@@ -166,11 +166,13 @@ class PostsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'date' => 'required'
         ]);
 		$post = Post::find($id);
                 
         if($request->hasFile('cover_image')) {
+            $photo = $request->file('cover_image');
             //get filename with extension
             $filenamewithextension = $request->file('cover_image')->getClientOriginalName();
 
@@ -189,7 +191,7 @@ class PostsController extends Controller
 
             //Resize image here
             $thumbnailpath = public_path('storage/cover_image/thumbnail/'.$filenametostore);
-            $img = Image::make($thumbnailpath)->resize(320, 170, function($constraint) {
+            $img = Image::make($photo->getRealPath())->resize(320, 170, function($constraint) {
                 $constraint->aspectRatio();
             });
             $img->save($thumbnailpath);
@@ -198,6 +200,7 @@ class PostsController extends Controller
         // Update Post
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->date = $request->input('date');
         $post->category = $request->category;
         if($request->hasFile('cover_image')){
             $post->cover_image = $filenametostore;
@@ -219,12 +222,7 @@ class PostsController extends Controller
         
         //Check if post exists before deleting
         if (!isset($post)){
-            return redirect('/posts')->with('error', 'Nije pronađen post');
-        }
-
-        // Check for correct user
-        if(auth()->user()->id !==$post->user_id){
-            return redirect('/posts')->with('error', 'Unauthorized Page');
+            return redirect('/')->with('error', 'Nije pronađen post');
         }
 
         if($post->cover_image != 'noimage.jpg'){
@@ -233,6 +231,6 @@ class PostsController extends Controller
         }
         
         $post->delete();
-        return redirect()->back()->with('success', 'Članak je uspješno obrisan.');
+        return redirect('/')->with('success', 'Članak je uspješno obrisan.');
     }
 }

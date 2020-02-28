@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->mediumText('body');
             $table->integer('views');
+             $table->string('date');
             $table->timestamps();
         });
     }

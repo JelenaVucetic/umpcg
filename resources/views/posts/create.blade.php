@@ -4,6 +4,10 @@
     <h1>Kreiraj Članak</h1>
     {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
+            {{Form::label('date', 'Datum')}}
+            {{Form::text('date', '', ['class' => 'form-control', 'placeholder' => 'Unesite datum', 'id' => 'date'])}} <br>
+        </div>
+        <div class="form-group">
             {{Form::label('title', 'Naslov')}}
             <br>
             <span>Do 70 karaktera</span>

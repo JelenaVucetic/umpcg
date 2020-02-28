@@ -13,7 +13,9 @@
 
 .jcarousel-control-prev, .jcarousel-control-next {
     background: none;
+    box-shadow: none;
    }
+
 
 @media (min-width:1000px) and (max-width:1550px){
     .carouselPost {

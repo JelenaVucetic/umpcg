@@ -20,7 +20,7 @@
                    <div class="postBox">
                    <a href="/posts/{{$post->id}}">
                    <span class="categoryActivities" ></span>
-                       <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
+                       <small style="color:#292663">Objavljeno: {{$post->date}}   </small>
                        <div id="imgDiv">
                        <img id="postImg" src="/storage/cover_image/thumbnail/{{$post->cover_image}}">
                        </div>
@@ -39,7 +39,7 @@
                    <div class="postBox">
                    <a href="/posts/{{$post->id}}">
                    <span class="categoryActivities" ></span>
-                       <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
+                       <small style="color:#292663">Objavljeno: {{$post->date}}   </small>
                        <div id="imgDiv">
                        <img id="postImg" src="/storage/cover_image/thumbnail/{{$post->cover_image}}">
                        </div>

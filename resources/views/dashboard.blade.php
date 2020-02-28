@@ -6,8 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a href="/posts/create" class="btn btn-primary">Kreiraj članak</a>
-                    <h3>Tvoji članci</h3>
+                    <a href="/posts/create" class="btn btn-primary" style="margin-bottom:20px;">Kreiraj članak</a>
                     @if(count($posts) > 0)
                         <table class="table table-striped">
                             <tr>

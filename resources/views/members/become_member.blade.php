@@ -75,8 +75,10 @@
                 <input type="text" name="place" placeholder="Mjesto Prebivalista *" value="{{ old('place') }}" required>
                 <input type="text" name="phone" placeholder="Telefon *" value="{{ old('phone') }}" required>
                 <input type="email" name="email" placeholder="E-mail *" value="{{ old('email') }}" required>              
-                <input id="fileInput" name="image" type="file" style="display:none;"  value="{{ old('image') }}">
-                <input type="file" id="file-upload"/>
+               <!--  <input id="fileInput" name="image" type="file" style="display:none;"  value="{{ old('image') }}"> -->
+                <div id='test' style="padding:0;">
+                <input type="file" id="file-upload" name="image"/>
+                </div>
                 <label  for="file-upload" id="image1"><img src="/img/Upload.svg" alt=""><span> Uploaduj svoj logo </span> <br> <p id="file-upload-filename"></p> </label>
         
             </div>
@@ -118,7 +120,7 @@
                 <div class="postBox carouselPost">
                     <a href="/posts/{{$post->id}}">
                         <span class="category" ></span>
-                        <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
+                        <small style="color:#292663">Objavljeno:{{$post->date}}   </small>
                         <div id="imgDiv">
                             <img id="postImg" src="/storage/cover_image/thumbnail/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
                         </div>
@@ -133,7 +135,7 @@
             </ul>
         </div>
         <a href="#" class="jcarousel-control-prev"><img src="/img/Drop down strelica (1).svg" alt=""></a>
-        <a href="#" class="jcarousel-control-next"><img src="/img/Drop down strelica (1).svg" alt=""></a>
+        <a href="#" class="jcarousel-control-next"><img src="/img/Ikonica - strelica udesno.svg" alt="" style="width: 25px;"></a>
     </div>
 </div>
 @endsection

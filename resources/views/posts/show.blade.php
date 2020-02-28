@@ -3,9 +3,9 @@
 @section('content')
 {!! Breadcrumbs::render('post', $post) !!}
 <section class="singlePostSection">
-    <div>
+    <div style='width:100%; word-wrap: break-word;'>
         <img class="singlePost" src="/storage/cover_image/thumbnail/{{$post->cover_image}}">
-        <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
+        <small style="color:#292663">Objavljeno: {{$post->date}}   </small>
         <h1 style="color:#292663; margin: 10px 0;font-size: 28px;">{{$post->title}}</h1>
         <div style="display:flex;align-items: center; margin: 25px 0;">
             <small style="white-space:nowrap;"> <img src="/img/Pregledi-ikonica copy.svg" alt=""  style="margin-right: 7px;"> {{ $post->views }} pregleda</small>
@@ -18,17 +18,18 @@
                 </ul>
             </div>
         </div>
+        
           <p> {!!$post->body!!}</p>
     </div>
 
 
     @if(!Auth::guest())
         @if(Auth::user()->id == $post->user_id)
-            <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
+            <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Izmjeni</a>
 
             {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                {{Form::submit('Obriši', ['class' => 'btn btn-danger'])}}
             {!!Form::close()!!}
         @endif
     @endif
@@ -46,7 +47,7 @@
                 <div class="postBox carouselPost">
                     <a href="/posts/{{$post->id}}">
                         <span class="category" ></span>
-                        <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
+                        <small style="color:#292663">Objavljeno: {{$post->date}}  </small>
                         <div id="imgDiv">
                             <img id="postImg" src="/storage/cover_image/thumbnail/{{$post->cover_image}}"  style="max-height:130px;min-height:130px;">
                         </div>
@@ -61,7 +62,7 @@
             </ul>
         </div>
         <a href="#" class="jcarousel-control-prev"><img src="/img/Drop down strelica (1).svg" alt=""></a>
-        <a href="#" class="jcarousel-control-next"><img src="/img/Drop down strelica (1).svg" alt=""></a>
+        <a href="#" class="jcarousel-control-next"><img src="/img/Ikonica - strelica udesno.svg" alt="" style="width: 25px;"></a>
     </div>
 </div>
 @endsection

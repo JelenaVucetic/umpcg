@@ -24,6 +24,7 @@
         <th class="th-lg">Instagram stranica</th>
         <th class="th-lg">Status</th>
         <th class="th-lg">Akcija</th>
+        <th class="th-lg">Obriši</th>
       </tr>
     </thead>
     <tbody>
@@ -58,7 +59,29 @@
         <span class="label label-info">Postponed</span>
        @endif
         </td>
-        <td><a href="{{action('MembersController@edit', $member->id)}}" class="btn btn-warning">Promijeni status</a></td>
+        <td>
+        <form method="post" action="/update/{{$member->id}}">
+            {{ csrf_field() }}
+                <div class="form-group">
+                    <select name="approve">
+                        <option value="0" @if($member->status==0)selected @endif>Na cekanju</option>
+                        <option value="1" @if($member->status==1)selected @endif>Odobri</option>
+                        <option value="2" @if($member->status==2)selected @endif>Odbij</option>
+                        <option value="3" @if($member->status==3)selected @endif>Odlozi</option> 
+                    </select>
+                </div>
+                <div class="form-group ">
+                <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </form>
+        </td>
+        <td>
+          
+        {!!Form::open(['action' => ['MembersController@destroy', $member->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                {{Form::hidden('_method', 'DELETE')}}
+                {{Form::submit('Obriši', ['class' => 'btn btn-danger'])}}
+            {!!Form::close()!!}
+        </td>
       </tr>
       @endforeach
     </tbody>

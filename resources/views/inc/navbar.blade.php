@@ -16,7 +16,7 @@
     </div>
 </nav>
 
-<nav class="navbar" id="navbar" style="z-index: 999;" > 
+<nav class="navbar" id="navbar" style="z-index: 999;border:none;" > 
     <div class='mobile'>
             <form  action="{{ route('search') }}" method='get'>
                 <input name="query" id="query" value="{{ request()->input('query') }}" placeholder="Search...">

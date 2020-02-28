@@ -69,9 +69,7 @@ class MembersController extends Controller
         $member->place = $request->place;
         $member->phone = $request->phone;
         $member->email = $request->email;
-        if($request->hasFile('image')){
-            $member->image = $fileNameToStore;
-        }
+        $member->image = $fileNameToStore;
         $member->company = $request->company;
         $member->pib = $request->pib;
         $member->date = $request->date;
@@ -85,7 +83,7 @@ class MembersController extends Controller
 
         $member->save();
         
-        Mail::to('jelenavucetic24@gmail.com')->send(new Membership($member));
+       // Mail::to('jelenavucetic24@gmail.com')->send(new Membership($member));
  
         return redirect()->back()->with('success', 'Uspješno ste poslali zahtjev za članstvo');
     }
@@ -121,5 +119,18 @@ class MembersController extends Controller
 
         }
         return redirect()->back();    
+    }
+
+    public function destroy($id)
+    {
+        $member = Member::find($id);
+        
+        //Check if post exists before deleting
+        if (!isset($member)){
+            return redirect('/')->with('error', 'Član nije pronađen');
+        }
+        
+        $member->delete();
+        return redirect()->back()->with('success', 'Član je uspješno obrisan.');
     }
 }
