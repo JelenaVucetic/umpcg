@@ -45,4 +45,7 @@ Route::get('/showMembers', 'MembersController@showMembers');
 Route::get('edit/{id}','MembersController@edit');
 Route::post('/update/{id}','MembersController@update');
 
+Route::get('/members/edit/{id}','MembersController@editMember');
+Route::post('/members/update/{id}','MembersController@updateMember');
+
 Route::delete('/members/{id}', 'MembersController@destroy');

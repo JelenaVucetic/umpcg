@@ -24,6 +24,7 @@
         <th class="th-lg">Instagram stranica</th>
         <th class="th-lg">Status</th>
         <th class="th-lg">Akcija</th>
+        <th class="th-lg">Izmijeni</th>
         <th class="th-lg">Obriši</th>
       </tr>
     </thead>
@@ -37,7 +38,7 @@
         <td>{{$member->place}}</td>
         <td>{{$member->phone}}</td>
         <td>{{$member->email}}</td>
-        <td>  <img id="" src="/storage/cover_images/{{$member->image}}" style="width:100px;"></td>
+        <td>  <img id="" src="/img/{{$member->image}}" style="width:100px;"></td>
         <td>{{$member->company}}</td>
         <td>{{$member->pib}}</td>
         <td>{{$member->date}}</td>
@@ -74,6 +75,9 @@
                 <button type="submit" class="btn btn-success">Update</button>
                 </div>
             </form>
+        </td>
+        <td>
+        <a href="/members/edit/{{$member->id}}" class="btn btn-default">Izmjeni</a>
         </td>
         <td>
           

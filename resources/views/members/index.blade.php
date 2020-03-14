@@ -8,12 +8,12 @@
 @php
 $rowCount = 0;
 @endphp
-    <div class="row random">
+    <div class="row random" style="margin-top: 30px;">
         @foreach($members as $member)
-            <div class="col-md-3  company">
+            <div class="col-lg-2 col-md-3 col-sm-6 company" style="margin-top: 30px;">
                 <div class="inner">
                     @if($member->image)
-                    <img src="/storage/cover_images/{{ $member->image }}" alt="">
+                    <img src="/img/{{ $member->image }}" alt="">
                     @else 
                     <img src="/img/icon-no-image.svg" alt="">
                     @endif
@@ -42,8 +42,8 @@ $rowCount = 0;
             $rowCount++;
             @endphp
             
-            @if($rowCount % 4 == 0)
-            </div><div class="row">
+            @if($rowCount % 6 == 0)
+            </div><div class=""  style="margin-top: 30px;">
             @endif
         @endforeach
     </div>

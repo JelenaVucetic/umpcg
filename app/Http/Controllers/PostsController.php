@@ -102,7 +102,7 @@ class PostsController extends Controller
      
             //Resize image here
             $thumbnailpath = public_path('storage/cover_image/thumbnail/'.$filenametostore);
-            $img = Image::make($photo->getRealPath())->fit(320, 170, function ($constraint) {
+            $img = Image::make($photo->getRealPath())->fit(500, 300, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->save($thumbnailpath);
@@ -191,7 +191,7 @@ class PostsController extends Controller
 
             //Resize image here
             $thumbnailpath = public_path('storage/cover_image/thumbnail/'.$filenametostore);
-            $img = Image::make($photo->getRealPath())->resize(320, 170, function($constraint) {
+            $img = Image::make($photo->getRealPath())->fit(500, 300, function($constraint) {
                 $constraint->aspectRatio();
             });
             $img->save($thumbnailpath);

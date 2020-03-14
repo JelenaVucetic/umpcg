@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Member;
 use App\Mail\Membership;
+use Storage;
 use Mail;
 use Illuminate\Http\Request;
 
@@ -45,21 +46,22 @@ class MembersController extends Controller
             'work' => 'required',
             'organization' => 'required'
         ]);
-
-        if($request->hasFile('image')){
-            // Get filename with the extension
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('image')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('image')->storeAs('public/cover_images', $fileNameToStore);
-        } else {
+        if ($request->hasFile('image')) {
+            //PHOTO
+            //Get filename w extension
+            $photo = $request->file('image');
+            $fileNameWithExt = $photo->getClientOriginalName();
+            //Samo ime
+            $filename = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //samo extension
+            $extension = $request->file('image')->getclientOriginalExtension();
+            //create new filename
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //slika
+            $path = $request->file('image')->move(public_path('img'), $fileNameToStore);
+            } else {
             $fileNameToStore = 'noimage.jpg';
-        }
+            }
 
         $member = new Member;
         
@@ -119,6 +121,75 @@ class MembersController extends Controller
 
         }
         return redirect()->back();    
+    }
+
+    public function editMember($id) {
+        $member = \DB::table('members')->where('id', $id)->first();
+        return view('members.edit_member', compact('member'));
+    }
+
+    public function updateMember(Request $request, $id) {
+        $this->validate($request, [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'image' => 'nullable|max:1999',
+            'jmbg' => 'required|size:13',
+            'place' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'description' => 'min:220|max:250',
+            'company' => 'required',
+            'pib' => 'required',
+            'date' => 'required',
+            'address' => 'required',
+            'work' => 'required',
+            'organization' => 'required'
+        ]);
+
+        $member = \DB::table('members')->where('id', $id)->first();
+        if ($request->hasFile('image')) {
+            //PHOTO
+            //Get filename w extension
+            $photo = $request->file('image');
+            $fileNameWithExt = $photo->getClientOriginalName();
+            //Samo ime
+            $filename = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //samo extension
+            $extension = $request->file('image')->getclientOriginalExtension();
+            //create new filename
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //slika
+            $path = $request->file('image')->move(public_path('img'), $fileNameToStore);
+            } else {
+            $fileNameToStore = 'noimage.jpg';
+            }
+
+            \DB::table('members')->where('id', $id)->update([
+
+                    'firstname' => $request->firstname,
+                    'lastname' => $request->lastname,
+                    'jmbg' => $request->jmbg,
+                    'place' => $request->place,
+                    'phone' => $request->phone,
+                    'email' => $request->email,
+                    'image' => $fileNameToStore,
+                    'company' => $request->company,
+                    'pib' => $request->pib,
+                    'date' => $request->date,
+                    'address' => $request->address,
+                    'web' => $request->web,
+                    'work' => $request->work,
+                    'organization' => $request->organization,
+                    'description' => $request->description,
+                    'facebook' => $request->facebook,
+                    'instagram' => $request->instagram,
+
+        ]);
+
+        
+       // Mail::to('jelenavucetic24@gmail.com')->send(new Membership($member));
+ 
+        return redirect('/showMembers')->with('success', 'Uspješno ste izmjenili člana.');
     }
 
     public function destroy($id)
