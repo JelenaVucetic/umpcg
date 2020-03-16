@@ -60,7 +60,7 @@ class MembersController extends Controller
             //slika
             $path = $request->file('image')->move(public_path('img'), $fileNameToStore);
             } else {
-            $fileNameToStore = 'noimage.jpg';
+            $fileNameToStore = 'icon-no-image.svg';
             }
 
         $member = new Member;
@@ -161,7 +161,7 @@ class MembersController extends Controller
             //slika
             $path = $request->file('image')->move(public_path('img'), $fileNameToStore);
             } else {
-            $fileNameToStore = 'noimage.jpg';
+            $fileNameToStore = 'icon-no-image.svg';
             }
 
             \DB::table('members')->where('id', $id)->update([

@@ -1,10 +1,9 @@
 #membersSection {
-    margin: 0 125px;
     margin-top: 15px;
 }
 
 .inner {
-    height: 430px;
+    height: 410px;
     border: 5px solid #EFEFEF;
     text-align: center;
     position: relative;
@@ -14,12 +13,11 @@
     max-width: 100%;
     max-height: 100%;
     position: absolute;
-    top: 50%;
+    top: 53%;
     left: 50%;
-    width: 200px;
-    height: 280px;
+    width: 90%;
     margin-top: -150px;
-    margin-left: -100px;
+    margin-left: -45%;
 }
 .inner:hover .overlay {
     opacity: 1;
@@ -29,7 +27,7 @@
     border-top: 2px solid #292663;
     background-color: #292663;
     margin-top: -15px;
-    margin-left: 0;
+    margin-left: 10px;
     margin-bottom: 10px;
 }
   .text {
@@ -44,7 +42,7 @@
     transform: translate(-20%, -20%);
     text-align: center;
   }
-.text h4 {
+.inner h4 {
     margin:0;
     text-align: start;
     color: #292663;
@@ -52,14 +50,14 @@
     padding: 25px 0;
 }
 
-.text .description {
+.inner .description {
     font-size: 14px;
     padding: 10px 0;
     color: grey;
     text-align: start;
 }
 
-.text p {
+.inner p {
     font-size: 15px;
     color: grey;
     text-align: start;
@@ -109,12 +107,8 @@
     background-color: #EFEFEF;
   }
 
-  #breadSection {
-    margin:0 125px;
-  }
-  
 @media (min-width:1300px) and (max-width:1550px){
-     .inner img{
+   /*   .inner img{
       max-width: 100%;
         max-height: 100%;
         position: absolute;
@@ -124,11 +118,11 @@
         height: 280px;
         margin-top: -140px;
         margin-left: -140px;
-     }
+     } */
 }
 
 @media (min-width:1000px) and (max-width:1299px){
-    .inner img{
+  /*   .inner img{
         max-width: 100%;
         max-height: 100%;
         position: absolute;
@@ -138,23 +132,20 @@
         height: 280px;
         margin-top: -140px;
         margin-left: -140px;
-    }
+    } */
 }
 
 
 @media only screen and (max-width : 992px) {
-    #membersSection {
-        margin: 0;
-    }
 
     .company {
         margin-bottom: 20px;
     }
-
+/* 
     #breadSection {
         margin: 10px 0px;
         margin-top:0;
-      }
+      } */
       
     
 }
