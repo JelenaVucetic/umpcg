@@ -19,7 +19,7 @@
 <nav class="navbar" id="navbar" style="z-index: 999;border:none;" > 
     <div class='mobile'>
             <form  action="{{ route('search') }}" method='get'>
-                <input name="query" id="query" value="{{ request()->input('query') }}" placeholder="Search...">
+                <input name="query" id="query" value="{{ request()->input('query') }}" placeholder="Search..." required>
                 <div class="mobileSearch"></div>
             </form> 
     </div>
@@ -38,7 +38,7 @@
                 <div class="search-container">
                     <form action="{{ route('search') }}" method='get' style="padding: 3px;">
                         <button type="submit"><i class="fa fa-search"></i></button>
-                        <input type="text" name="query" id="query" value="{{ request()->input('query') }}">
+                        <input type="text" name="query" id="query" value="{{ request()->input('query') }}" required>
                     </form>
                 </div>
             </div>

@@ -26,7 +26,7 @@
                    <span class="category" ></span>
                        <small style="color:#292663">Objavljeno: {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}  </small>
                        <div id="imgDiv">
-                            <img id="postImg" src="/storage/cover_images/{{$post->cover_image}}">
+                            <img id="postImg" src="/storage/cover_image/thumbnail/{{$post->cover_image}}">
                         </div>
                        <h3>{{$post->title}}</h3>
                        <div class="half-a-border-on-top">
