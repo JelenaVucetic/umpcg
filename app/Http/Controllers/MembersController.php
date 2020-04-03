@@ -194,7 +194,7 @@ class MembersController extends Controller
 
     public function destroy($id)
     {
-        $member = Member::find($id);
+        $member = Member::withAnyStatus()->find($id);
         
         //Check if post exists before deleting
         if (!isset($member)){

@@ -216,10 +216,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $post = Post::find($id);
-        
+        $post = Post::find($request->post_id);
         //Check if post exists before deleting
         if (!isset($post)){
             return redirect('/')->with('error', 'Nije pronađen post');
@@ -231,6 +230,6 @@ class PostsController extends Controller
         }
         
         $post->delete();
-        return redirect('/')->with('success', 'Članak je uspješno obrisan.');
+        return back()->with('success', 'Članak je uspješno obrisan.');
     }
 }

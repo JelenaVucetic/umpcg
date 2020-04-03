@@ -30,6 +30,8 @@
     <link href="{{ asset('css/eBooks.css') }}" rel="stylesheet">
     <link href="{{ asset('css/members.css') }}" rel="stylesheet">
     <link href="{{ asset('css/activities.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin-nav.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
@@ -60,6 +62,8 @@
     <script src="{{ asset('js/jquery.jcarousel.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    @yield('boostrap-script')
+    @yield('fixed-column-script')
     <script>
         CKEDITOR.replace( 'article-ckeditor' );
     </script>
@@ -137,5 +141,63 @@
 });
 
 </script>
+
+<script>
+$('#delete').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var postId = button.data('post') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-content #p_id').val(postId) 
+})
+</script>
+
+<script>
+ $(function() {
+    $(".wrapper2").mousewheel(function(event, delta) {
+    this.scrollLeft -= (delta * 50);   
+    event.preventDefault();
+
+    });
+
+    });
+</script>
+
+<script>
+
+/*  $(document).ready(function() {
+    var table = $('#example').DataTable( {     
+    scrollX:        true,
+    scrollCollapse: true,
+    paging: false,
+    "info": false,
+    } );
+} ); */
+
+var table = $('#example').DataTable({
+    paging: false,
+    "info": false,
+});
+
+$('#myInputTextField').on( 'keyup', function () {
+    table.search( this.value ).draw();
+} );
+
+</script>
+
+<script>
+    $(function(){
+    $(".wrapper1").scroll(function(){
+        $(".wrapper2")
+            .scrollLeft($(".wrapper1").scrollLeft());
+    });
+    $(".wrapper2").scroll(function(){
+        $(".wrapper1")
+            .scrollLeft($(".wrapper2").scrollLeft());
+    });
+});
+</script>
+
 </body>
 </html>

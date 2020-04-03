@@ -15,9 +15,9 @@
     position: absolute;
     top: 53%;
     left: 50%;
-    width: 90%;
+    width: 75%;
     margin-top: -150px;
-    margin-left: -45%;
+    margin-left: -38%;
 }
 .inner:hover .overlay {
     opacity: 1;
@@ -73,6 +73,7 @@
     min-height: 50px;
     display: flex;
     align-items: center;
+   
 }
 
 #firstname {
@@ -84,6 +85,7 @@
 
 #email {
     background-image: url('/img/Ikonica 3.svg');
+    word-break: break-all;
 }
 
 #web {
@@ -106,6 +108,69 @@
     transition: .5s ease;
     background-color: #EFEFEF;
   }
+
+.wrapper1{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 5px;
+}
+.wrapper2{
+  overflow-x: scroll; 
+  overflow-y:hidden; 
+  height: auto;
+  width: 100%;
+}
+
+.div1 {
+    width: 4000px;
+    height: 20px;
+}
+.div2 {
+    width: 100%;
+    height: auto;
+}
+
+.membersTable  > thead:first-child > tr:first-child > th {
+    cursor: pointer;
+    background-color:#EFEFEF;
+    text-align: center;
+}
+
+.membersTable > tbody > tr > td{
+    text-align: center;
+}
+
+
+
+.wrapper1::-webkit-scrollbar {
+   background-color: white;
+}
+.wrapper1::-webkit-scrollbar-thumb {
+    background-color: #F15B5B;
+    height: 5px;
+}
+
+.wrapper2::-webkit-scrollbar {
+    background-color: white;
+    height: 5px;
+}
+
+.wrapper2::-webkit-scrollbar-thumb {
+    background-color: #F15B5B;
+}
+/* .wrapper1::-webkit-scrollbar-thumb:window-inactive{
+    background-color: yellow;
+} */
+
+#example_filter {
+    display: none;
+}
+
+.searchMembers {
+    text-align: center;
+    margin: 20px 0;
+    margin-left: 40px;
+}
 
 @media (min-width:1300px) and (max-width:1550px){
    /*   .inner img{
@@ -147,5 +212,8 @@
         margin-top:0;
       } */
       
-    
+      .inner img {
+        width: 64%;
+        margin-left: -32%;
+    }
 }

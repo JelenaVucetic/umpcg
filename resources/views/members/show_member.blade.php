@@ -1,17 +1,38 @@
 @extends('layouts.app')
-@section('members')
 
-    <table class="table table-striped">
+@section('fixed-column-script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+<script src="/js/dataTables.js"></script>
+<script src="/js/dataTables-fixedColumn.js"></script>
+@endsection
+
+@section('members')
+@include('inc.admin_nav')
+
+<div class="searchMembers container-fluid">
+  <label>Pretraži</label>
+  <input type="text" id="myInputTextField">
+</div>
+<div class="container">
+
+<div class="wrapper1">
+  <div class="div1">
+  </div>
+</div>
+
+<div class="wrapper2">
+  <div class="div2">
+    <table id="example" class="membersTable table">
     <thead>
       <tr>
         <th>#</th>
+        <th class="th-lg">Logo</th>
         <th class="th-lg">Ime</th>
         <th class="th-lg">Prezime</th>
         <th class="th-lg">Jmbg</th>
-        <th class="th-lg">Mjesto prebivalista</th>
+        <th class="th-lg">Prebivalište</th>
         <th class="th-lg">Telefon</th>
         <th class="th-lg">E-mail</th>
-        <th class="th-lg">Logo</th>
         <th class="th-lg">Naziv firme</th>
         <th class="th-lg">Pib</th>
         <th class="th-lg">Datum osnivanja</th>
@@ -24,21 +45,22 @@
         <th class="th-lg">Instagram stranica</th>
         <th class="th-lg">Status</th>
         <th class="th-lg">Akcija</th>
-        <th class="th-lg">Izmijeni</th>
+        <th class="th-lg fixed-side" scope="col">Izmijeni</th>
         <th class="th-lg">Obriši</th>
       </tr>
     </thead>
     <tbody>
+    @php $i=1; @endphp
     @foreach($members as $member)
       <tr>
-      <th scope="row">{{$member->id}}</th>
+      <th scope="row">@php echo $i; @endphp</th>
+        <td><img id="" src="/img/{{$member->image}}" style="width:100px;"></td>
         <td>{{$member->firstname}}</td>
         <td>{{$member->lastname}}</td>
         <td>{{$member->jmbg}}</td>
         <td>{{$member->place}}</td>
         <td>{{$member->phone}}</td>
         <td>{{$member->email}}</td>
-        <td>  <img id="" src="/img/{{$member->image}}" style="width:100px;"></td>
         <td>{{$member->company}}</td>
         <td>{{$member->pib}}</td>
         <td>{{$member->date}}</td>
@@ -77,7 +99,7 @@
             </form>
         </td>
         <td>
-        <a href="/members/edit/{{$member->id}}" class="btn btn-default">Izmjeni</a>
+        <a href="/members/edit/{{$member->id}}" class="btn btn-default fixed-side">Izmjeni</a>
         </td>
         <td>
           
@@ -87,7 +109,13 @@
             {!!Form::close()!!}
         </td>
       </tr>
+      @php $i++; @endphp
       @endforeach
     </tbody>
   </table>
+  </div>
+</div>
+  
+</div>
+
  @endsection

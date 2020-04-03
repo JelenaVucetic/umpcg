@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class PagesController extends Controller
 {
     public function index(){
-        $posts = Post::orderBy('created_at','desc')->paginate(500);
+        $posts = Post::orderBy('created_at','desc')->paginate(2000);
         $posts->map(function ($post) {
             $post->title = substr($post->title , 0, 70);
             return $post;
@@ -33,7 +33,7 @@ class PagesController extends Controller
     }
 
     public function activities () {
-        $posts = Post::orderBy('created_at','desc')->where('category' ,'ostalo')->paginate(500);
+        $posts = Post::orderBy('created_at','desc')->where('category' ,'ostalo')->paginate(2000);
         $posts->map(function ($post) {
             $post->title = substr($post->title , 0, 50);
             return $post;
@@ -49,7 +49,7 @@ class PagesController extends Controller
 
         $query = $request->input('query');
 
-        $posts = Post::search($query)->paginate(20);
+        $posts = Post::search($query)->paginate(50);
         $posts->map(function ($post) {
             $post->title = substr($post->title , 0, 50);
             return $post;
