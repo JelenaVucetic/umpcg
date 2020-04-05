@@ -66,7 +66,7 @@
     padding-top: 3px;
 }
 
-#firstname, #work, #email, #web {
+#firstname, #work, #member-email, #web {
     background-repeat: no-repeat;
     background-size: 26px 23px;
     background-position-y: 8px;
@@ -83,13 +83,14 @@
     background-image: url('/img/Ikonica 2.svg');
 }
 
-#email {
+#member-email {
     background-image: url('/img/Ikonica 3.svg');
     word-break: break-all;
 }
 
 #web {
     background-image: url('/img/Ikonica 4.svg');
+    cursor: pointer;
 }
 
 .text div img {
@@ -122,7 +123,7 @@
 }
 
 .div1 {
-    width: 4000px;
+    width: 5000px;
     height: 20px;
 }
 .div2 {
@@ -138,10 +139,18 @@
 
 .membersTable > tbody > tr > td{
     text-align: center;
+    vertical-align: middle;
+    color: #292663;
 }
 
+.membersTable > tbody > tr > th{
+    text-align: center;
+    vertical-align: middle;
+}
 
-
+.membersTable .form-group {
+    margin-bottom: 0px; 
+}
 .wrapper1::-webkit-scrollbar {
    background-color: white;
 }
@@ -158,13 +167,24 @@
 .wrapper2::-webkit-scrollbar-thumb {
     background-color: #F15B5B;
 }
-/* .wrapper1::-webkit-scrollbar-thumb:window-inactive{
-    background-color: yellow;
-} */
 
+.cell {
+    max-width: 500px; /* tweak me please */
+    width: 500px;
+  }
+.cellFb, .cellInsta {
+    max-width: 200px; /* tweak me please */
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
 #example_filter {
     display: none;
 }
+
+
 
 .searchMembers {
     text-align: center;

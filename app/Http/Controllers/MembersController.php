@@ -30,6 +30,15 @@ class MembersController extends Controller
     }
 
     public function addMember(Request $request) {
+           
+        $messages = [
+            'min' => 'Minimalni broj karaktera je 220.',
+            'description.max' => 'Maksimalni broj karaktera je 250.',
+            'image.max' => 'Maksimalni veličina slike je 1999.',
+            'required' => 'Ispunite obavezno polje'
+        ];
+
+
         $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
@@ -45,7 +54,7 @@ class MembersController extends Controller
             'address' => 'required',
             'work' => 'required',
             'organization' => 'required'
-        ]);
+        ], $messages);
         if ($request->hasFile('image')) {
             //PHOTO
             //Get filename w extension
@@ -188,8 +197,7 @@ class MembersController extends Controller
 
         
        // Mail::to('jelenavucetic24@gmail.com')->send(new Membership($member));
- 
-        return redirect('/showMembers')->with('success', 'Uspješno ste izmjenili člana.');
+        return redirect('/showMembers'.'#component'.$id)->with('success', 'Uspješno ste izmjenili člana.');
     }
 
     public function destroy($id)

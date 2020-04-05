@@ -69,12 +69,12 @@
     {{ csrf_field() }}
         <div class="contactForm">
             <div>
-                <input type="text" name="firstname" placeholder="Ime *" value="{{ old('firstname') }}"  required>
-                <input type="text" name="lastname" placeholder="Prezime *" value="{{ old('lastname') }}" required>
-                <input type="text" name="jmbg" placeholder="JMBG *" value="{{ old('jmbg') }}" required>
-                <input type="text" name="place" placeholder="Mjesto Prebivalista *" value="{{ old('place') }}" required>
-                <input type="text" name="phone" placeholder="Telefon *" value="{{ old('phone') }}" required>
-                <input type="email" name="email" placeholder="E-mail *" value="{{ old('email') }}" required>              
+                <input type="text" name="firstname" placeholder="Ime *" value="{{ old('firstname') }}"  required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
+                <input type="text" name="lastname" placeholder="Prezime *" value="{{ old('lastname') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
+                <input type="text" name="jmbg" placeholder="JMBG *" value="{{ old('jmbg') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
+                <input type="text" name="place" placeholder="Mjesto Prebivalista *" value="{{ old('place') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
+                <input type="text" name="phone" placeholder="Telefon *" value="{{ old('phone') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
+                <input type="email" name="email" placeholder="E-mail *" value="{{ old('email') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">              
                <!--  <input id="fileInput" name="image" type="file" style="display:none;"  value="{{ old('image') }}"> -->
                 <div id='test' style="padding:0;">
                 <input type="file" id="file-upload" name="image"/>
@@ -83,16 +83,16 @@
         
             </div>
             <div>
-                <input type="text" name="company" placeholder="Naziv firme *"  value="{{ old('company') }}">
-                <input type="text" name="pib" placeholder="PIB *"  value="{{ old('pib') }}">
-                <input type="text" name="date" placeholder="Datum osnivanja *"  value="{{ old('date') }}">
-                <input type="text" name="address" placeholder="Adresa firme *"  value="{{ old('address') }}">
+                <input type="text" name="company" placeholder="Naziv firme *"  value="{{ old('company') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
+                <input type="text" name="pib" placeholder="PIB *"  value="{{ old('pib') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
+                <input type="text" name="date" placeholder="Datum osnivanja *"  value="{{ old('date') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
+                <input type="text" name="address" placeholder="Adresa firme *"  value="{{ old('address') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
                 <input type="text" name="web" placeholder="Web adresa"  value="{{ old('web') }}">
-                <input type="text" name="work" placeholder="Osnovna djelatnost *"  value="{{ old('work') }}">
-                <input type="text" name="organization" placeholder="Oblik organizacije *"  value="{{ old('organization') }}">
+                <input type="text" name="work" placeholder="Osnovna djelatnost *"  value="{{ old('work') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')" > 
+                <input type="text" name="organization" placeholder="Oblik organizacije *"  value="{{ old('organization') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
             </div>
         </div>
-        <textarea name="description" id="" placeholder="Kratak opis vaše kompanije *">{{ old('description') }}</textarea>
+        <textarea name="description" id="" placeholder="Kratak opis vaše kompanije *" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">{{ old('description') }}</textarea>
         <div class="textareaLimit">
             <span>220-250 karaktera</span> <span>Unijeto <span id="characters">0 </span>  karatkera</span>
         </div>

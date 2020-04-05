@@ -43,9 +43,13 @@ class PagesController extends Controller
 
     public function search(Request $request) {
        
+        $messages = [
+            'min' => 'Unesite više od 3 karaktera.',
+        ];
+
         $this->validate($request, [
             'query' => 'required|min:3',
-        ]);
+        ], $messages);
 
         $query = $request->input('query');
 

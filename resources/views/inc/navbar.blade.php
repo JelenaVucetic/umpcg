@@ -39,7 +39,7 @@
                 <div class="search-container">
                     <form action="{{ route('search') }}" method='get' style="padding: 3px;">
                         <button type="submit"><i class="fa fa-search"></i></button>
-                        <input type="text" name="query" id="query" value="{{ request()->input('query') }}" required>
+                        <input type="text" name="query" id="query" value="{{ request()->input('query') }}" required oninvalid="this.setCustomValidity('Obavezno polje')"  oninput="setCustomValidity('')">
                     </form>
                 </div>
             </div>

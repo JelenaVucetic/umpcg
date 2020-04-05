@@ -7,7 +7,9 @@
 @endsection
 
 @section('members')
+<div class="container">
 @include('inc.admin_nav')
+</div>
 
 <div class="searchMembers container-fluid">
   <label>Pretraži</label>
@@ -25,7 +27,7 @@
     <table id="example" class="membersTable table">
     <thead>
       <tr>
-        <th>#</th>
+        <th></th>
         <th class="th-lg">Logo</th>
         <th class="th-lg">Ime</th>
         <th class="th-lg">Prezime</th>
@@ -45,33 +47,33 @@
         <th class="th-lg">Instagram stranica</th>
         <th class="th-lg">Status</th>
         <th class="th-lg">Akcija</th>
-        <th class="th-lg fixed-side" scope="col">Izmijeni</th>
+        <th class="th-lg" scope="col">Izmijeni</th>
         <th class="th-lg">Obriši</th>
       </tr>
     </thead>
     <tbody>
     @php $i=1; @endphp
     @foreach($members as $member)
-      <tr>
+      <tr id="component{{ $member->id }}">
       <th scope="row">@php echo $i; @endphp</th>
         <td><img id="" src="/img/{{$member->image}}" style="width:100px;"></td>
-        <td>{{$member->firstname}}</td>
-        <td>{{$member->lastname}}</td>
-        <td>{{$member->jmbg}}</td>
-        <td>{{$member->place}}</td>
-        <td>{{$member->phone}}</td>
-        <td>{{$member->email}}</td>
-        <td>{{$member->company}}</td>
-        <td>{{$member->pib}}</td>
-        <td>{{$member->date}}</td>
-        <td>{{$member->address}}</td>
-        <td>{{$member->web}}</td>
-        <td>{{$member->work}}</td>
-        <td>{{$member->organization}}</td>
-        <td>{{$member->description}}</td>
-        <td>{{$member->facebook}}</td>
-        <td>{{$member->instagram}}</td>
-        <td>
+        <td class="td-lg"><div>{{$member->firstname}}</div></td>
+        <td class="td-lg"><div>{{$member->lastname}}</div></td>
+        <td class="td-lg"><div>{{$member->jmbg}}</div></td>
+        <td class="td-lg"><div>{{$member->place}}</div></td>
+        <td class="td-lg"><div>{{$member->phone}}</div></td>
+        <td class="td-lg"><div>{{$member->email}}</div></td>
+        <td class="td-lg"><div>{{$member->company}}</div></td>
+        <td class="td-lg"><div>{{$member->pib}}</div></td>
+        <td class="td-lg"><div>{{$member->date}}</div></td>
+        <td class="td-lg"><div class="cell">{{$member->address}}</div></td>
+        <td class="td-lg"><div>{{$member->web}}</div></td>
+        <td class="td-lg"><div class="cell">{{$member->work}}</div></td>
+        <td class="td-lg"><div>{{$member->organization}}</div></td>
+        <td class="td-lg"><div class="cell">{{$member->description}}</div></td>
+        <td class="td-lg"><div onClick='copyText(this)' data-toggle="tooltip" title="Copy"  class="cellFb">{{$member->facebook}}</div></td>
+        <td class="td-lg "><div onClick='copyText(this)' data-toggle="tooltip" title="Copy"  class="cellInsta">{{$member->instagram}}</div></td>
+        <td class="td-lg">
         @if($member->status == 0)
         <span class="label label-primary">Na cekanju</span>
         @elseif($member->status == 1)
@@ -82,11 +84,11 @@
         <span class="label label-info">Postponed</span>
        @endif
         </td>
-        <td>
+        <td class="td-lg">
         <form method="post" action="/update/{{$member->id}}">
             {{ csrf_field() }}
                 <div class="form-group">
-                    <select name="approve">
+                    <select name="approve" onchange="this.form.submit()">
                         <option value="0" @if($member->status==0)selected @endif>Na cekanju</option>
                         <option value="1" @if($member->status==1)selected @endif>Odobri</option>
                         <option value="2" @if($member->status==2)selected @endif>Odbij</option>
@@ -94,18 +96,18 @@
                     </select>
                 </div>
                 <div class="form-group ">
-                <button type="submit" class="btn btn-success">Update</button>
+              <!--   <button type="submit" class="btn btn-success">Update</button> -->
                 </div>
             </form>
         </td>
-        <td>
-        <a href="/members/edit/{{$member->id}}" class="btn btn-default fixed-side">Izmjeni</a>
+        <td class="td-lg">
+        <a href="/members/edit/{{$member->id}}" class="editBtn">Izmjeni</a>
         </td>
         <td>
           
         {!!Form::open(['action' => ['MembersController@destroy', $member->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('Obriši', ['class' => 'btn btn-danger'])}}
+                {{Form::submit('Obriši', ['class' => 'deleteBtn'])}}
             {!!Form::close()!!}
         </td>
       </tr>

@@ -32,10 +32,10 @@
                             <div id="work">
                                 <p>{{ $member->work}}</p>
                             </div>
-                            <div id="email">
+                            <div id="member-email">
                                 <p>{{ $member->email}}</p>
                             </div>
-                            <div id="web">
+                            <div id="web"  onClick='copyText(this)' data-toggle="tooltip" title="Copy" >
                                 <p>{{ $member->web}}</p>
                             </div>
                         </div>
